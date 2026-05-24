@@ -1,6 +1,6 @@
 # bravo-proect
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue 3 + Vite project configured for Cloudflare Pages and Docker.
 
 ## Recommended IDE Setup
 
@@ -35,6 +35,39 @@ npm run dev
 
 ```sh
 npm run build
+```
+
+Build output directory:
+
+```sh
+dist
+```
+
+## Cloudflare Pages
+
+Use these settings:
+
+```txt
+Framework preset: Vue
+Build command: npm run build
+Build output directory: dist
+Node version: 22.16.0
+```
+
+The repository also contains `wrangler.toml`, `.nvmrc`, and `.node-version` so Cloudflare can use the expected build output and Node version.
+
+## Docker
+
+Build and run the production container:
+
+```sh
+docker compose up --build
+```
+
+Open:
+
+```txt
+http://localhost:5173
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
