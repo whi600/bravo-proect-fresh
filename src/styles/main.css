@@ -679,11 +679,77 @@ textarea {
   .stats-grid,
   .types-grid,
   .problems-grid,
-  .steps-grid,
+  .steps-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .estimates-grid,
   .reviews-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .metric-card,
+  .type-card,
+  .problems-grid .card,
+  .step-card {
+    padding: 12px;
+  }
+
+  .metric-card {
+    display: grid;
+    align-content: center;
+    min-height: 112px;
+  }
+
+  .metric-value {
+    font-size: clamp(1.45rem, 8vw, 2rem);
+    line-height: 1;
+  }
+
+  .metric-card p:not(.metric-value),
+  .type-card p,
+  .problems-grid .card p,
+  .step-card p:not(.step-period) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+  }
+
+  .metric-card p:not(.metric-value) {
+    -webkit-line-clamp: 3;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .type-card h3,
+  .problems-grid .card h3,
+  .step-card h3 {
+    font-size: clamp(1.05rem, 5vw, 1.28rem);
+    line-height: 1.1;
+  }
+
+  .type-card p,
+  .problems-grid .card p,
+  .step-card p:not(.step-period) {
+    -webkit-line-clamp: 3;
+    font-size: 0.84rem;
+    line-height: 1.42;
+  }
+
+  .type-card ul {
+    display: none;
+  }
+
+  .type-price,
+  .step-period {
+    font-size: 0.76rem;
+  }
+
+  .text-link {
+    font-size: 0.82rem;
+    line-height: 1.25;
   }
 
   .case-card {
