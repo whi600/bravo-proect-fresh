@@ -25,6 +25,22 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
+## Responsive And Browser Support
+
+Every UI change must stay usable on mobile and desktop. Before pushing layout or content changes, check these widths:
+
+```txt
+360px, 390px, 430px, 768px, 1024px, 1366px, 1440px+
+```
+
+Required behavior:
+
+- Important content, forms, buttons, navigation targets, and calls to action must remain visible at every width.
+- Cards and grids must collapse before text or media overflows horizontally.
+- Mobile screens must keep touch targets at least 44px high and avoid bottom CTA overlap.
+- New sections must work in current Chromium, Firefox, Safari, and mobile browsers.
+- If a desktop block is changed, its mobile layout must be adjusted in the same change.
+
 ### Compile and Hot-Reload for Development
 
 ```sh
