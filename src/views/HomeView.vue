@@ -100,26 +100,6 @@ function submitQuiz() {
       </div>
     </section>
 
-    <section id="types" class="section">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Типы ремонта</p>
-          <h2>Выберите формат работ под вашу задачу</h2>
-        </div>
-        <div class="types-grid">
-          <article v-for="type in repairTypes" :key="type.slug" class="card type-card">
-            <p class="type-price">{{ type.priceFrom }}</p>
-            <h3>{{ type.title }}</h3>
-            <p>{{ type.short }}</p>
-            <ul>
-              <li v-for="item in type.scope" :key="item">{{ item }}</li>
-            </ul>
-            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`">Смотреть страницу услуги</RouterLink>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section id="quiz" class="section section-accent">
       <div class="container quiz-grid">
         <div>
@@ -194,6 +174,26 @@ function submitQuiz() {
           <button class="btn btn-primary" type="submit">Получить предварительную смету</button>
           <p v-if="quizSent" class="form-success">Принято. Мы подготовим расчёт и свяжемся с вами.</p>
         </form>
+      </div>
+    </section>
+
+    <section id="types" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Типы ремонта</p>
+          <h2>Выберите формат работ под вашу задачу</h2>
+        </div>
+        <div class="types-grid">
+          <article v-for="type in repairTypes" :key="type.slug" class="card type-card">
+            <p class="type-price">{{ type.priceFrom }}</p>
+            <h3>{{ type.title }}</h3>
+            <p>{{ type.short }}</p>
+            <ul>
+              <li v-for="item in type.scope" :key="item">{{ item }}</li>
+            </ul>
+            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`">Смотреть страницу услуги</RouterLink>
+          </article>
+        </div>
       </div>
     </section>
 
