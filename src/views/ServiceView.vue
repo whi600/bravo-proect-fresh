@@ -16,7 +16,7 @@ const relatedCase = computed(() =>
 <template>
   <div v-if="service && page">
     <section class="hero hero-service">
-      <div class="container hero-grid">
+      <div class="container container-wide hero-grid">
         <div>
           <p class="eyebrow">Услуги BRAVO REMONT</p>
           <h1>{{ page.heroTitle }}</h1>
@@ -38,7 +38,7 @@ const relatedCase = computed(() =>
     </section>
 
     <section class="section">
-      <div class="container service-columns">
+      <div class="container container-wide service-columns">
         <article class="card">
           <h2>Что входит в услугу</h2>
           <ul>
@@ -55,7 +55,7 @@ const relatedCase = computed(() =>
     </section>
 
     <section class="section section-dark">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Этапы работ</p>
           <h2>Структура процесса по этой услуге</h2>
@@ -71,7 +71,7 @@ const relatedCase = computed(() =>
     </section>
 
     <section class="section">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Кейсы по услуге</p>
           <h2>Объекты с прозрачными цифрами</h2>
@@ -92,7 +92,7 @@ const relatedCase = computed(() =>
     </section>
 
     <section class="section section-soft">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Примеры смет</p>
           <h2>Ориентиры по бюджету</h2>

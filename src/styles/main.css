@@ -12,6 +12,7 @@
   --radius-lg: 20px;
   --radius-md: 14px;
   --container: min(1160px, calc(100vw - 32px));
+  --container-wide: min(1500px, calc(100vw - 48px));
   --shadow-soft: 0 16px 36px rgba(47, 48, 42, 0.08);
 }
 
@@ -60,6 +61,10 @@ video {
 .container {
   width: var(--container);
   margin-inline: auto;
+}
+
+.container-wide {
+  width: var(--container-wide);
 }
 
 .section {
@@ -150,6 +155,7 @@ a {
   gap: 18px;
   min-height: 78px;
   min-width: 0;
+  width: min(1500px, calc(100vw - 48px));
 }
 
 .logo {
@@ -317,7 +323,7 @@ a {
 }
 
 .stats-grid {
-  grid-template-columns: repeat(4, minmax(170px, 1fr));
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
 }
 
 .metric-card {
@@ -332,7 +338,7 @@ a {
 }
 
 .types-grid {
-  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
 }
 
 .type-card ul {
@@ -403,7 +409,7 @@ textarea {
 .steps-grid,
 .estimates-grid,
 .reviews-grid {
-  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
 }
 
 .step-period {
@@ -587,6 +593,7 @@ textarea {
 @media (max-width: 760px) {
   :root {
     --container: min(100% - 24px, 680px);
+    --container-wide: var(--container);
     --radius-xl: 22px;
     --radius-lg: 16px;
     --radius-md: 12px;
@@ -737,6 +744,7 @@ textarea {
 @media (max-width: 430px) {
   :root {
     --container: min(100% - 20px, 420px);
+    --container-wide: var(--container);
   }
 
   .header-inner {

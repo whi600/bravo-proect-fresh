@@ -62,7 +62,7 @@ function submitQuiz() {
 <template>
   <div>
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container container-wide hero-grid">
         <div>
           <p class="eyebrow">Ремонт под ключ в Перми</p>
           <h1>Отделка квартир с понятной сметой, контролем качества и реальными сроками</h1>
@@ -92,7 +92,7 @@ function submitQuiz() {
     </section>
 
     <section class="section">
-      <div class="container stats-grid">
+      <div class="container container-wide stats-grid">
         <article v-for="metric in trustMetrics" :key="metric.value" class="card metric-card">
           <p class="metric-value">{{ metric.value }}</p>
           <p>{{ metric.label }}</p>
@@ -101,7 +101,7 @@ function submitQuiz() {
     </section>
 
     <section id="quiz" class="section section-accent">
-      <div class="container quiz-grid">
+      <div class="container container-wide quiz-grid">
         <div>
           <p class="eyebrow">Мини-квиз</p>
           <h2>Получите предварительную смету за 2 минуты</h2>
@@ -178,7 +178,7 @@ function submitQuiz() {
     </section>
 
     <section id="types" class="section">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Типы ремонта</p>
           <h2>Выберите формат работ под вашу задачу</h2>
@@ -198,7 +198,7 @@ function submitQuiz() {
     </section>
 
     <section class="section">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Боли и решения</p>
           <h2>Закрываем риски, из-за которых ремонт превращается в хаос</h2>
@@ -213,7 +213,7 @@ function submitQuiz() {
     </section>
 
     <section class="section section-dark">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Этапы</p>
           <h2>Как мы ведём объект от заявки до сдачи</h2>
@@ -229,7 +229,7 @@ function submitQuiz() {
     </section>
 
     <section id="cases" class="section">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Портфолио</p>
           <h2>Реальные кейсы: площадь, срок, стоимость и результат</h2>
@@ -252,7 +252,7 @@ function submitQuiz() {
     </section>
 
     <section id="estimate" class="section section-soft">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">Примеры смет</p>
           <h2>Понятная структура цены без “сюрпризов”</h2>
@@ -276,7 +276,7 @@ function submitQuiz() {
     </section>
 
     <section class="section">
-      <div class="container reviews-grid">
+      <div class="container container-wide reviews-grid">
         <article v-for="review in reviews" :key="review.author" class="card review-card">
           <p>«{{ review.text }}»</p>
           <strong>{{ review.author }}</strong>
