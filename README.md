@@ -72,6 +72,19 @@ Node version: 22.16.0
 
 The repository also contains `wrangler.toml`, `.nvmrc`, and `.node-version` so Cloudflare can use the expected build output and Node version.
 
+## Netlify
+
+Use these settings:
+
+```txt
+Build command: npm run build
+Publish directory: dist
+Node version: 22.16.0
+Production branch: main
+```
+
+The repository also contains `netlify.toml`, so Netlify can apply these settings automatically when it builds from Git.
+
 ## Docker
 
 Build and run the production container:
