@@ -3,7 +3,6 @@ import { computed, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import LeadForm from '../components/LeadForm.vue'
 import {
-  clientProblems,
   company,
   estimateExamples,
   faqItems,
@@ -15,6 +14,7 @@ import {
 } from '../data/siteData'
 
 const quizSent = ref(false)
+const activeProcessStep = ref(0)
 const quiz = reactive({
   objectType: 'novostroyka',
   area: 52,
@@ -49,6 +49,8 @@ const estimateRange = computed(() => {
     high: Math.round(middle * 1.14),
   }
 })
+
+const currentProcessStep = computed(() => processSteps[activeProcessStep.value] || processSteps[0])
 
 function formatRub(value) {
   return new Intl.NumberFormat('ru-RU').format(value)
@@ -111,7 +113,9 @@ function submitQuiz() {
           </p>
           <div class="price-preview">
             <p>Ориентир по вашему вводу:</p>
-            <strong>{{ formatRub(estimateRange.low) }} — {{ formatRub(estimateRange.high) }} ₽</strong>
+            <strong
+              >{{ formatRub(estimateRange.low) }} — {{ formatRub(estimateRange.high) }} ₽</strong
+            >
           </div>
         </div>
 
@@ -172,7 +176,9 @@ function submitQuiz() {
           </label>
 
           <button class="btn btn-primary" type="submit">Получить предварительную смету</button>
-          <p v-if="quizSent" class="form-success">Принято. Мы подготовим расчёт и свяжемся с вами.</p>
+          <p v-if="quizSent" class="form-success">
+            Принято. Мы подготовим расчёт и свяжемся с вами.
+          </p>
         </form>
       </div>
     </section>
@@ -191,39 +197,106 @@ function submitQuiz() {
             <ul>
               <li v-for="item in type.scope" :key="item">{{ item }}</li>
             </ul>
-            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`">Смотреть страницу услуги</RouterLink>
+            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`"
+              >Смотреть страницу услуги</RouterLink
+            >
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section process-section">
       <div class="container container-wide">
-        <div class="section-head">
-          <p class="eyebrow">Боли и решения</p>
-          <h2>Закрываем риски, из-за которых ремонт превращается в хаос</h2>
-        </div>
-        <div class="problems-grid">
-          <article v-for="problem in clientProblems" :key="problem.title" class="card">
-            <h3>{{ problem.title }}</h3>
-            <p>{{ problem.answer }}</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container container-wide">
-        <div class="section-head">
+        <div class="section-head process-head">
           <p class="eyebrow">Этапы</p>
           <h2>Как мы ведём объект от заявки до сдачи</h2>
+          <p>
+            Каждый этап фиксируем по срокам, смете и результату. Вы видите понятный маршрут ремонта
+            без хаоса, скрытых работ и ежедневного ручного контроля.
+          </p>
         </div>
-        <div class="steps-grid">
-          <article v-for="step in processSteps" :key="step.title" class="card step-card">
-            <p class="step-period">{{ step.period }}</p>
-            <h3>{{ step.title }}</h3>
-            <p>{{ step.details }}</p>
-          </article>
+
+        <div class="process-timeline process-timeline-desktop">
+          <div class="process-row process-row-top">
+            <div v-for="(step, index) in processSteps" :key="step.title" class="process-slot">
+              <button
+                v-if="index % 2 === 0"
+                class="process-card"
+                :class="{ 'is-active': activeProcessStep === index }"
+                type="button"
+                @click="activeProcessStep = index"
+              >
+                <span>{{ step.period }}</span>
+                <strong>{{ step.title }}</strong>
+              </button>
+            </div>
+          </div>
+
+          <div class="process-line">
+            <span class="process-line-fill"></span>
+            <button
+              v-for="(step, index) in processSteps"
+              :key="step.title"
+              class="process-dot"
+              :class="{ 'is-active': activeProcessStep === index }"
+              type="button"
+              :aria-label="`Открыть этап ${index + 1}: ${step.title}`"
+              @click="activeProcessStep = index"
+            >
+              {{ index + 1 }}
+            </button>
+          </div>
+
+          <div class="process-row process-row-bottom">
+            <div v-for="(step, index) in processSteps" :key="step.title" class="process-slot">
+              <button
+                v-if="index % 2 !== 0"
+                class="process-card"
+                :class="{ 'is-active': activeProcessStep === index }"
+                type="button"
+                @click="activeProcessStep = index"
+              >
+                <span>{{ step.period }}</span>
+                <strong>{{ step.title }}</strong>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-timeline-mobile">
+          <button
+            v-for="(step, index) in processSteps"
+            :key="step.title"
+            class="process-mobile-step"
+            :class="{ 'is-active': activeProcessStep === index }"
+            type="button"
+            @click="activeProcessStep = index"
+          >
+            <span class="process-mobile-dot">{{ index + 1 }}</span>
+            <span class="process-mobile-card">
+              <small>{{ step.period }}</small>
+              <strong>{{ step.title }}</strong>
+            </span>
+          </button>
+        </div>
+
+        <div class="process-detail">
+          <div class="process-detail-number">0{{ activeProcessStep + 1 }}</div>
+          <div>
+            <p class="step-period">{{ currentProcessStep.period }}</p>
+            <h3>{{ currentProcessStep.title }}</h3>
+            <p>{{ currentProcessStep.details }}</p>
+          </div>
+          <div class="process-pills" aria-label="Выбор этапа">
+            <button
+              v-for="(step, index) in processSteps"
+              :key="step.title"
+              type="button"
+              :class="{ 'is-active': activeProcessStep === index }"
+              :aria-label="`Показать этап ${index + 1}`"
+              @click="activeProcessStep = index"
+            ></button>
+          </div>
         </div>
       </div>
     </section>
@@ -309,7 +382,9 @@ function submitQuiz() {
 
         <aside class="contact-card card">
           <h3>Контакты</h3>
-          <p><strong>{{ company.phone }}</strong></p>
+          <p>
+            <strong>{{ company.phone }}</strong>
+          </p>
           <p>{{ company.address }}</p>
           <p>{{ company.workHours }}</p>
           <p>

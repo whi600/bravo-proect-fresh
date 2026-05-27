@@ -32,7 +32,8 @@ body,
 body {
   font-family: 'Manrope', sans-serif;
   color: var(--graphite);
-  background: radial-gradient(circle at 8% 0%, rgba(184, 102, 69, 0.14), transparent 40%),
+  background:
+    radial-gradient(circle at 8% 0%, rgba(184, 102, 69, 0.14), transparent 40%),
     radial-gradient(circle at 92% 8%, rgba(111, 117, 88, 0.14), transparent 36%), var(--lime);
   line-height: 1.58;
   overflow-x: hidden;
@@ -575,6 +576,238 @@ textarea {
   margin-bottom: 10px;
 }
 
+.process-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 22%, rgba(184, 102, 69, 0.18), transparent 28%),
+    linear-gradient(145deg, rgba(250, 247, 240, 0.96), rgba(235, 224, 205, 0.86));
+}
+
+.process-section::before {
+  content: '';
+  position: absolute;
+  inset: 10% -8% auto auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 999px;
+  background: rgba(111, 117, 88, 0.14);
+  filter: blur(6px);
+}
+
+.process-section > .container {
+  position: relative;
+}
+
+.process-head {
+  max-width: 760px;
+}
+
+.process-head p:not(.eyebrow) {
+  max-width: 68ch;
+  color: rgba(47, 48, 42, 0.72);
+}
+
+.process-timeline {
+  margin-top: 52px;
+}
+
+.process-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.process-row-top {
+  align-items: end;
+  margin-bottom: 10px;
+}
+
+.process-row-bottom {
+  align-items: start;
+  margin-top: 10px;
+}
+
+.process-slot {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.process-card {
+  width: min(100%, 186px);
+  min-height: 102px;
+  border: 1px solid rgba(143, 90, 60, 0.16);
+  border-radius: 18px;
+  padding: 16px;
+  color: var(--graphite);
+  text-align: left;
+  background: rgba(250, 247, 240, 0.78);
+  box-shadow: 0 18px 38px rgba(47, 48, 42, 0.08);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.process-card:hover,
+.process-card.is-active {
+  transform: translateY(-3px);
+  border-color: var(--clay);
+  background: var(--graphite);
+  color: var(--milk);
+}
+
+.process-card span,
+.process-mobile-card small {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--olive);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.process-card.is-active span,
+.process-card:hover span {
+  color: rgba(250, 247, 240, 0.62);
+}
+
+.process-card strong,
+.process-mobile-card strong {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.18;
+}
+
+.process-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+}
+
+.process-line::before,
+.process-line-fill {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.process-line::before {
+  background: rgba(47, 48, 42, 0.14);
+}
+
+.process-line-fill {
+  background: linear-gradient(90deg, var(--clay), var(--olive));
+}
+
+.process-line::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid rgba(47, 48, 42, 0.42);
+  border-right: 2px solid rgba(47, 48, 42, 0.42);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.process-dot,
+.process-mobile-dot {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(47, 48, 42, 0.36);
+  border-radius: 999px;
+  color: rgba(47, 48, 42, 0.62);
+  background: var(--milk);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.process-dot.is-active,
+.process-mobile-step.is-active .process-mobile-dot {
+  transform: scale(1.08);
+  border-color: var(--graphite);
+  color: var(--milk);
+  background: var(--graphite);
+}
+
+.process-timeline-mobile {
+  display: none;
+}
+
+.process-detail {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: start;
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(143, 90, 60, 0.18);
+}
+
+.process-detail-number {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  color: var(--milk);
+  background: var(--graphite);
+  font-weight: 800;
+}
+
+.process-detail h3 {
+  margin-bottom: 8px;
+}
+
+.process-detail p:not(.step-period) {
+  max-width: 66ch;
+  color: rgba(47, 48, 42, 0.72);
+}
+
+.process-pills {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.process-pills button {
+  width: 12px;
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(47, 48, 42, 0.22);
+  cursor: pointer;
+  transition:
+    width 180ms ease,
+    background 180ms ease;
+}
+
+.process-pills button.is-active {
+  width: 34px;
+  background: var(--clay);
+}
+
 .cases-grid {
   display: grid;
   gap: 18px;
@@ -746,6 +979,11 @@ textarea {
   h1 {
     max-width: 18ch;
   }
+
+  .process-card {
+    min-height: 112px;
+    padding: 14px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -828,6 +1066,90 @@ textarea {
 
   .hero-actions .btn {
     width: 100%;
+  }
+
+  .process-head {
+    gap: 10px;
+  }
+
+  .process-head h2 {
+    max-width: 18ch;
+  }
+
+  .process-timeline-desktop {
+    display: none;
+  }
+
+  .process-timeline-mobile {
+    position: relative;
+    display: grid;
+    gap: 12px;
+    margin-top: 28px;
+    padding-left: 46px;
+  }
+
+  .process-timeline-mobile::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    bottom: 18px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--clay), rgba(111, 117, 88, 0.32));
+  }
+
+  .process-mobile-step {
+    position: relative;
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .process-mobile-dot {
+    position: absolute;
+    left: -46px;
+    top: 10px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .process-mobile-card {
+    display: block;
+    min-height: 78px;
+    border: 1px solid rgba(143, 90, 60, 0.16);
+    border-radius: 16px;
+    padding: 14px;
+    background: rgba(250, 247, 240, 0.82);
+    box-shadow: 0 14px 30px rgba(47, 48, 42, 0.07);
+  }
+
+  .process-mobile-step.is-active .process-mobile-card {
+    border-color: var(--clay);
+    color: var(--milk);
+    background: var(--graphite);
+  }
+
+  .process-mobile-step.is-active .process-mobile-card small {
+    color: rgba(250, 247, 240, 0.62);
+  }
+
+  .process-detail {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+
+  .process-detail-number {
+    display: none;
+  }
+
+  .process-pills {
+    order: -1;
   }
 
   .card {
