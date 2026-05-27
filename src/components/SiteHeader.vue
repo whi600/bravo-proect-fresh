@@ -7,6 +7,7 @@ import { company } from '../data/siteData'
 const route = useRoute()
 const isHome = computed(() => route.path === '/')
 const mobileMenuOpen = ref(false)
+const activeMobileMenu = ref(null)
 
 const serviceMenu = [
   {
@@ -80,8 +81,18 @@ const navItems = [
   { label: 'Контакты', href: '/#lead-end' },
 ]
 
+function toggleMobileMenu() {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+  activeMobileMenu.value = null
+}
+
+function openMobileMenu(menu) {
+  activeMobileMenu.value = menu
+}
+
 function closeMobileMenu() {
   mobileMenuOpen.value = false
+  activeMobileMenu.value = null
 }
 </script>
 
@@ -132,7 +143,7 @@ function closeMobileMenu() {
         type="button"
         :aria-expanded="mobileMenuOpen"
         aria-controls="mobile-menu"
-        @click="mobileMenuOpen = !mobileMenuOpen"
+        @click="toggleMobileMenu"
       >
         <span></span>
         <span></span>
@@ -141,35 +152,51 @@ function closeMobileMenu() {
     </div>
 
     <nav id="mobile-menu" class="mobile-nav" :class="{ 'is-open': mobileMenuOpen }">
-      <details open>
-        <summary>Услуги</summary>
-        <div v-for="group in serviceMenu" :key="group.title" class="mobile-nav-group">
-          <p>{{ group.title }}</p>
-          <a v-for="item in group.items" :key="item.label" :href="item.href" @click="closeMobileMenu">
-            {{ item.label }}
-          </a>
-        </div>
-      </details>
+      <div v-if="!activeMobileMenu" class="mobile-menu-screen">
+        <button class="mobile-nav-item mobile-nav-parent" type="button" @click="openMobileMenu('services')">
+          <span>Услуги</span>
+          <span aria-hidden="true">›</span>
+        </button>
 
-      <a v-for="item in navItems.slice(0, 2)" :key="item.label" :href="item.href" @click="closeMobileMenu">
-        {{ item.label }}
-      </a>
+        <a v-for="item in navItems.slice(0, 2)" :key="item.label" :href="item.href" @click="closeMobileMenu">
+          {{ item.label }}
+        </a>
 
-      <details>
-        <summary>Виды работ</summary>
-        <div v-for="group in workMenu" :key="group.title" class="mobile-nav-group">
-          <p>{{ group.title }}</p>
-          <a v-for="item in group.items" :key="item" href="/#lead-end" @click="closeMobileMenu">
-            {{ item }}
-          </a>
-        </div>
-      </details>
+        <button class="mobile-nav-item mobile-nav-parent" type="button" @click="openMobileMenu('works')">
+          <span>Виды работ</span>
+          <span aria-hidden="true">›</span>
+        </button>
 
-      <a v-for="item in navItems.slice(2)" :key="item.label" :href="item.href" @click="closeMobileMenu">
-        {{ item.label }}
-      </a>
+        <a v-for="item in navItems.slice(2)" :key="item.label" :href="item.href" @click="closeMobileMenu">
+          {{ item.label }}
+        </a>
 
-      <a class="btn btn-primary" href="/#quiz" @click="closeMobileMenu">Рассчитать стоимость</a>
+        <a class="btn btn-primary" href="/#quiz" @click="closeMobileMenu">Рассчитать стоимость</a>
+      </div>
+
+      <div v-else class="mobile-menu-screen">
+        <button class="mobile-nav-back" type="button" @click="activeMobileMenu = null">← Назад</button>
+
+        <template v-if="activeMobileMenu === 'services'">
+          <p class="mobile-menu-title">Услуги</p>
+          <div v-for="group in serviceMenu" :key="group.title" class="mobile-nav-group">
+            <p>{{ group.title }}</p>
+            <a v-for="item in group.items" :key="item.label" :href="item.href" @click="closeMobileMenu">
+              {{ item.label }}
+            </a>
+          </div>
+        </template>
+
+        <template v-if="activeMobileMenu === 'works'">
+          <p class="mobile-menu-title">Виды работ</p>
+          <div v-for="group in workMenu" :key="group.title" class="mobile-nav-group">
+            <p>{{ group.title }}</p>
+            <a v-for="item in group.items" :key="item" href="/#lead-end" @click="closeMobileMenu">
+              {{ item }}
+            </a>
+          </div>
+        </template>
+      </div>
     </nav>
   </header>
 </template>
