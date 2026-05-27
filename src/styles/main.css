@@ -520,6 +520,14 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
+.quiz-copy h2 {
+  max-width: 12ch;
+}
+
+.quiz-copy > p:not(.eyebrow) {
+  max-width: 58ch;
+}
+
 .quiz-form,
 .lead-form-grid {
   display: grid;
@@ -1055,6 +1063,16 @@ textarea {
 
   .hero-actions .btn {
     width: 100%;
+  }
+
+  .quiz-copy h2 {
+    max-width: 11ch;
+    font-size: clamp(1.9rem, 10vw, 2.45rem);
+    line-height: 0.98;
+  }
+
+  .quiz-copy > p:not(.eyebrow) {
+    max-width: none;
   }
 
   .process-head {

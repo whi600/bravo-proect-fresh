@@ -104,9 +104,9 @@ function submitQuiz() {
 
     <section id="quiz" class="section section-accent">
       <div class="container container-wide quiz-grid">
-        <div>
-          <p class="eyebrow">Мини-квиз</p>
-          <h2>Получите предварительную смету за 2 минуты</h2>
+        <div class="quiz-copy">
+          <p class="eyebrow">Расчёт стоимости</p>
+          <h2>Предварительный расчёт ремонта</h2>
           <p>
             Заполните параметры объекта, и мы свяжемся с расчётом и рекомендациями, где можно
             сэкономить без потери качества.
