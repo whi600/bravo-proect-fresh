@@ -76,10 +76,7 @@ const workMenu = [
 
 const navItems = [
   { label: 'Портфолио', href: '/#cases' },
-  { label: 'Цены', href: '/#estimate' },
-  { label: 'Скидки и акции', href: '/#lead-end' },
   { label: 'О компании', href: '/#faq' },
-  { label: 'Муниципальные объекты', href: '/#cases' },
   { label: 'Контакты', href: '/#lead-end' },
 ]
 

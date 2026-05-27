@@ -192,6 +192,7 @@ a {
 .main-nav {
   display: inline-flex;
   flex-wrap: wrap;
+  align-items: stretch;
   justify-content: center;
   order: 3;
   width: 100%;
@@ -205,14 +206,16 @@ a {
   font-size: 0.92rem;
 }
 
-.nav-dropdown {
-  position: relative;
-}
-
+.main-nav > a,
 .nav-dropdown > a {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  line-height: 1;
+}
+
+.nav-dropdown {
+  position: relative;
 }
 
 .mega-menu {
