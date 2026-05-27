@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useRoute } from 'vue-router'
 import { company } from '../data/siteData'
@@ -94,6 +94,13 @@ function closeMobileMenu() {
   mobileMenuOpen.value = false
   activeMobileMenu.value = 'main'
 }
+
+watch(
+  () => route.fullPath,
+  () => {
+    closeMobileMenu()
+  },
+)
 </script>
 
 <template>
@@ -151,8 +158,28 @@ function closeMobileMenu() {
       </button>
     </div>
 
-    <nav id="mobile-menu" class="mobile-nav" :class="{ 'is-open': mobileMenuOpen }">
+    <button
+      class="mobile-menu-backdrop"
+      :class="{ 'is-open': mobileMenuOpen }"
+      type="button"
+      aria-label="Закрыть меню"
+      @click="closeMobileMenu"
+    ></button>
+
+    <nav
+      id="mobile-menu"
+      class="mobile-nav"
+      :class="{ 'is-open': mobileMenuOpen }"
+      aria-label="Мобильное меню"
+    >
       <div v-if="activeMobileMenu === 'main'" class="mobile-menu-screen">
+        <div class="mobile-menu-panel-head">
+          <p class="mobile-menu-title">Меню</p>
+          <button class="mobile-nav-close" type="button" aria-label="Закрыть меню" @click="closeMobileMenu">
+            ×
+          </button>
+        </div>
+
         <button class="mobile-nav-item mobile-nav-parent" type="button" @click="openMobileMenu('services')">
           <span>Услуги</span>
           <span aria-hidden="true">›</span>
@@ -175,7 +202,12 @@ function closeMobileMenu() {
       </div>
 
       <div v-else class="mobile-menu-screen">
-        <button class="mobile-nav-back" type="button" @click="activeMobileMenu = 'main'">← Назад</button>
+        <div class="mobile-menu-panel-head">
+          <button class="mobile-nav-back" type="button" @click="activeMobileMenu = 'main'">← Назад</button>
+          <button class="mobile-nav-close" type="button" aria-label="Закрыть меню" @click="closeMobileMenu">
+            ×
+          </button>
+        </div>
 
         <template v-if="activeMobileMenu === 'services'">
           <p class="mobile-menu-title">Услуги</p>
