@@ -7,7 +7,7 @@ import { company } from '../data/siteData'
 const route = useRoute()
 const isHome = computed(() => route.path === '/')
 const mobileMenuOpen = ref(false)
-const activeMobileMenu = ref(null)
+const activeMobileMenu = ref('main')
 
 const serviceMenu = [
   {
@@ -83,7 +83,7 @@ const navItems = [
 
 function toggleMobileMenu() {
   mobileMenuOpen.value = !mobileMenuOpen.value
-  activeMobileMenu.value = null
+  activeMobileMenu.value = 'main'
 }
 
 function openMobileMenu(menu) {
@@ -92,7 +92,7 @@ function openMobileMenu(menu) {
 
 function closeMobileMenu() {
   mobileMenuOpen.value = false
-  activeMobileMenu.value = null
+  activeMobileMenu.value = 'main'
 }
 </script>
 
@@ -143,7 +143,7 @@ function closeMobileMenu() {
         type="button"
         :aria-expanded="mobileMenuOpen"
         aria-controls="mobile-menu"
-        @click="toggleMobileMenu"
+        @click.stop="toggleMobileMenu"
       >
         <span></span>
         <span></span>
@@ -152,7 +152,7 @@ function closeMobileMenu() {
     </div>
 
     <nav id="mobile-menu" class="mobile-nav" :class="{ 'is-open': mobileMenuOpen }">
-      <div v-if="!activeMobileMenu" class="mobile-menu-screen">
+      <div v-if="activeMobileMenu === 'main'" class="mobile-menu-screen">
         <button class="mobile-nav-item mobile-nav-parent" type="button" @click="openMobileMenu('services')">
           <span>Услуги</span>
           <span aria-hidden="true">›</span>
@@ -175,7 +175,7 @@ function closeMobileMenu() {
       </div>
 
       <div v-else class="mobile-menu-screen">
-        <button class="mobile-nav-back" type="button" @click="activeMobileMenu = null">← Назад</button>
+        <button class="mobile-nav-back" type="button" @click="activeMobileMenu = 'main'">← Назад</button>
 
         <template v-if="activeMobileMenu === 'services'">
           <p class="mobile-menu-title">Услуги</p>
