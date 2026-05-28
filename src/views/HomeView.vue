@@ -348,26 +348,30 @@ function submitQuiz() {
       </div>
     </section>
 
-    <section class="section">
-      <div class="container container-wide reviews-grid">
-        <article v-for="review in reviews" :key="review.author" class="card review-card">
-          <p>«{{ review.text }}»</p>
-          <strong>{{ review.author }}</strong>
-        </article>
-      </div>
-    </section>
-
     <section id="faq" class="section">
-      <div class="container">
+      <div class="container container-wide">
         <div class="section-head">
           <p class="eyebrow">FAQ</p>
           <h2>Частые вопросы перед стартом ремонта</h2>
         </div>
-        <div class="faq-list">
-          <details v-for="item in faqItems" :key="item.question" class="card faq-item">
-            <summary>{{ item.question }}</summary>
-            <p>{{ item.answer }}</p>
-          </details>
+        <div class="faq-reviews-grid">
+          <div class="faq-list">
+            <details v-for="item in faqItems" :key="item.question" class="card faq-item">
+              <summary>{{ item.question }}</summary>
+              <p>{{ item.answer }}</p>
+            </details>
+          </div>
+
+          <aside class="faq-reviews">
+            <p class="eyebrow">Отзывы</p>
+            <h3>Что говорят клиенты после сдачи объекта</h3>
+            <div class="faq-reviews-list">
+              <article v-for="review in reviews" :key="review.author" class="card review-card">
+                <p>«{{ review.text }}»</p>
+                <strong>{{ review.author }}</strong>
+              </article>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

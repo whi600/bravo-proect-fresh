@@ -928,9 +928,30 @@ textarea {
   font-size: 1.02rem;
 }
 
+.faq-reviews-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.75fr);
+  gap: 18px;
+  align-items: start;
+}
+
 .faq-list {
   display: grid;
   gap: 10px;
+}
+
+.faq-reviews {
+  position: sticky;
+  top: 142px;
+}
+
+.faq-reviews h3 {
+  margin-bottom: 16px;
+}
+
+.faq-reviews-list {
+  display: grid;
+  gap: 12px;
 }
 
 .faq-item summary {
@@ -1260,6 +1281,7 @@ textarea {
 
   .estimates-grid,
   .reviews-grid,
+  .faq-reviews-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -1357,6 +1379,10 @@ textarea {
   select,
   textarea {
     min-height: 44px;
+  }
+
+  .faq-reviews {
+    position: static;
   }
 
   .mobile-sticky-cta {
