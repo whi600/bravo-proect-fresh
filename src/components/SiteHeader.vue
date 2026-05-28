@@ -2,6 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useRoute } from 'vue-router'
+import bravoLogo from '../assets/bravo-logo.png'
 import { company } from '../data/siteData'
 
 const route = useRoute()
@@ -129,11 +130,8 @@ watch(
   <header class="site-header">
     <div class="container header-inner">
       <RouterLink class="logo" to="/" aria-label="BRAVO REMONT">
-        <span class="logo-mark">BR</span>
-        <span>
-          <strong>{{ company.name }}</strong>
-          <small>Отделка под ключ • {{ company.city }}</small>
-        </span>
+        <img class="logo-image" :src="bravoLogo" alt="BRAVO REMONT" />
+        <span class="logo-caption">Отделка под ключ</span>
       </RouterLink>
 
       <nav class="main-nav">
