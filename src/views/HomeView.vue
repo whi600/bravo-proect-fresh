@@ -8,7 +8,6 @@ import {
   faqItems,
   portfolioCases,
   processSteps,
-  repairTypes,
   reviews,
   trustMetrics,
 } from '../data/siteData'
@@ -24,6 +23,51 @@ const quiz = reactive({
   startWhen: '1-2-mesyaca',
   phone: '',
 })
+
+const repairPriceTypes = [
+  {
+    slug: 'kosmeticheskij-remont',
+    title: 'Косметический ремонт',
+    price: 'от 2999 руб. за м²',
+    tone: 'cosmetic',
+    items: [
+      'Поклейка стен обоями (винил, флизелин)',
+      'Окраска радиаторов отопления',
+      'Устройство покрытия пола из ламината или линолеума',
+      'Монтаж пластикового плинтуса',
+      'Замена розеток, выключателей, светильников',
+      'Замена санфаянса',
+    ],
+  },
+  {
+    slug: 'kapitalnyj-remont',
+    title: 'Капитальный ремонт',
+    price: 'от 4499 руб. за м²',
+    tone: 'capital',
+    items: [
+      'Восстановление черновой отделки',
+      'Выравнивание стен, потолков, полов',
+      'Оклеивание стен обоями, окраска',
+      'Монтаж и окраска потолков',
+      'Устройство полов из ламината, паркета',
+      'Укладка плитки (ванная, санузел, кухня)',
+    ],
+  },
+  {
+    slug: 'dizajnerskij-remont',
+    title: 'Эксклюзивный ремонт',
+    price: 'от 8999 руб. за м²',
+    tone: 'exclusive',
+    items: [
+      'Работы по дизайн-проекту',
+      'Устройство многоуровневых потолков с подсветкой',
+      'Перепланировка помещений',
+      'Установка окон и дверей',
+      'Нанесение декоративной штукатурки, окраска',
+      'Устройство полов из ламината, паркета, пробки',
+    ],
+  },
+]
 
 const baseRates = {
   novostroyka: 12500,
@@ -183,23 +227,28 @@ function submitQuiz() {
       </div>
     </section>
 
-    <section id="types" class="section">
+    <section id="types" class="section repair-price-section">
       <div class="container container-wide">
         <div class="section-head">
-          <p class="eyebrow">Типы ремонта</p>
-          <h2>Выберите формат работ под вашу задачу</h2>
+          <p class="eyebrow">Стоимость за м²</p>
+          <h2>Три понятных формата ремонта под разный объём работ</h2>
         </div>
-        <div class="types-grid">
-          <article v-for="type in repairTypes" :key="type.slug" class="card type-card">
-            <p class="type-price">{{ type.priceFrom }}</p>
+        <div class="repair-price-grid">
+          <article
+            v-for="type in repairPriceTypes"
+            :key="type.slug"
+            class="card repair-price-card"
+            :class="`repair-price-card-${type.tone}`"
+          >
+            <div class="repair-price-icon" aria-hidden="true">
+              <span></span>
+            </div>
             <h3>{{ type.title }}</h3>
-            <p>{{ type.short }}</p>
+            <p class="repair-price-ribbon">{{ type.price }}</p>
             <ul>
-              <li v-for="item in type.scope" :key="item">{{ item }}</li>
+              <li v-for="item in type.items" :key="item">{{ item }}</li>
             </ul>
-            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`"
-              >Смотреть страницу услуги</RouterLink
-            >
+            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`">Подробнее о ремонте</RouterLink>
           </article>
         </div>
       </div>
