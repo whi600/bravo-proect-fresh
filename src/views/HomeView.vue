@@ -120,11 +120,6 @@ function submitQuiz() {
             <a class="btn btn-primary" href="#quiz">Рассчитать стоимость</a>
             <a class="btn btn-secondary" href="#lead-end">Вызвать замерщика бесплатно</a>
           </div>
-          <div class="hero-facts">
-            <p><strong>368+</strong> объектов сданы по договору</p>
-            <p><strong>9</strong> объектов ведём прямо сейчас</p>
-            <p><strong>Бесплатный замер</strong> в пределах Перми</p>
-          </div>
         </div>
 
         <div class="hero-image-wrap">
