@@ -18,17 +18,17 @@ const serviceMenu = [
       { label: 'Ремонт новостройки', href: '/uslugi/novostroyka' },
       { label: 'Ремонт ванной', href: '/uslugi/remont-vannoj' },
       { label: 'Ремонт кухни', href: '/uslugi/remont-kuhni' },
-      { label: 'Дизайнерский ремонт', href: '/#types' },
+      { label: 'Дизайнерский ремонт', href: '/uslugi/dizajnerskij-remont' },
     ],
   },
   {
     title: 'Количество комнат',
     items: [
-      { label: 'Квартира студия', href: '/#lead-end' },
-      { label: '1-комнатная квартира', href: '/#lead-end' },
-      { label: '2-комнатная квартира', href: '/#lead-end' },
-      { label: '3-комнатная квартира', href: '/#lead-end' },
-      { label: '4-комнатная квартира', href: '/#lead-end' },
+      { label: 'Квартира студия', href: '/uslugi/studija' },
+      { label: '1-комнатная квартира', href: '/uslugi/odnokomnatnaya-kvartira' },
+      { label: '2-комнатная квартира', href: '/uslugi/dvuhkomnatnaya-kvartira' },
+      { label: '3-комнатная квартира', href: '/uslugi/trehkomnatnaya-kvartira' },
+      { label: '4-комнатная квартира', href: '/uslugi/chetyrehkomnatnaya-kvartira' },
     ],
   },
   {
@@ -36,12 +36,12 @@ const serviceMenu = [
     items: [
       { label: 'Кухня', href: '/uslugi/remont-kuhni' },
       { label: 'Ванная', href: '/uslugi/remont-vannoj' },
-      { label: 'Гостиная', href: '/#lead-end' },
-      { label: 'Туалет', href: '/#lead-end' },
-      { label: 'Спальня', href: '/#lead-end' },
-      { label: 'Детская', href: '/#lead-end' },
-      { label: 'Прихожая', href: '/#lead-end' },
-      { label: 'Офис', href: '/#lead-end' },
+      { label: 'Гостиная', href: '/uslugi/remont-gostinoj' },
+      { label: 'Туалет', href: '/uslugi/remont-tualeta' },
+      { label: 'Спальня', href: '/uslugi/remont-spalni' },
+      { label: 'Детская', href: '/uslugi/remont-detskoj' },
+      { label: 'Прихожая', href: '/uslugi/remont-prihozhej' },
+      { label: 'Офис', href: '/uslugi/remont-ofisa' },
     ],
   },
   {
@@ -49,9 +49,9 @@ const serviceMenu = [
     items: [
       { label: 'Новостройка', href: '/uslugi/novostroyka' },
       { label: 'Вторичка', href: '/uslugi/vtorichka' },
-      { label: 'Панельный дом', href: '/#lead-end' },
-      { label: 'Кирпичный дом', href: '/#lead-end' },
-      { label: 'Хрущевка', href: '/#lead-end' },
+      { label: 'Панельный дом', href: '/uslugi/panelnyj-dom' },
+      { label: 'Кирпичный дом', href: '/uslugi/kirpichnyj-dom' },
+      { label: 'Хрущевка', href: '/uslugi/hruschevka' },
     ],
   },
 ]
@@ -59,19 +59,41 @@ const serviceMenu = [
 const workMenu = [
   {
     title: 'Стены',
-    items: ['Штукатурка стен', 'Шпатлевка стен', 'Покраска стен', 'Поклейка обоев', 'Плитка на стену'],
+    items: [
+      { label: 'Штукатурка стен', href: '/raboty/shtukaturka-sten' },
+      { label: 'Шпатлевка стен', href: '/raboty/shpatlevka-sten' },
+      { label: 'Покраска стен', href: '/raboty/pokraska-sten' },
+      { label: 'Поклейка обоев', href: '/raboty/poklejka-oboev' },
+      { label: 'Плитка на стену', href: '/raboty/plitka-na-stenu' },
+    ],
   },
   {
     title: 'Пол',
-    items: ['Стяжка пола', 'Укладка плитки', 'Укладка ламината', 'Гидроизоляция', 'Теплый пол'],
+    items: [
+      { label: 'Стяжка пола', href: '/raboty/styazhka-pola' },
+      { label: 'Укладка плитки', href: '/raboty/ukladka-plitki' },
+      { label: 'Укладка ламината', href: '/raboty/ukladka-laminata' },
+      { label: 'Гидроизоляция', href: '/raboty/gidroizolyaciya' },
+      { label: 'Теплый пол', href: '/raboty/teplyj-pol' },
+    ],
   },
   {
     title: 'Потолок',
-    items: ['Натяжной потолок', 'Покраска потолка', 'Шпатлевка потолка', 'Подвесной потолок'],
+    items: [
+      { label: 'Натяжной потолок', href: '/raboty/natyazhnoj-potolok' },
+      { label: 'Покраска потолка', href: '/raboty/pokraska-potolka' },
+      { label: 'Шпатлевка потолка', href: '/raboty/shpatlevka-potolka' },
+      { label: 'Подвесной потолок', href: '/raboty/podvesnoj-potolok' },
+    ],
   },
   {
     title: 'Инженерия',
-    items: ['Сантехника', 'Электрика', 'Демонтаж', 'Монтаж оборудования'],
+    items: [
+      { label: 'Сантехника', href: '/raboty/santehnika' },
+      { label: 'Электрика', href: '/raboty/elektrika' },
+      { label: 'Демонтаж', href: '/raboty/demontazh' },
+      { label: 'Монтаж оборудования', href: '/raboty/montazh-oborudovaniya' },
+    ],
   },
 ]
 
@@ -132,7 +154,7 @@ watch(
           <div class="mega-menu mega-menu-works">
             <div v-for="group in workMenu" :key="group.title" class="mega-menu-group">
               <p>{{ group.title }}</p>
-              <a v-for="item in group.items" :key="item" href="/#lead-end">{{ item }}</a>
+              <a v-for="item in group.items" :key="item.label" :href="item.href">{{ item.label }}</a>
             </div>
           </div>
         </div>
@@ -223,8 +245,8 @@ watch(
           <p class="mobile-menu-title">Виды работ</p>
           <div v-for="group in workMenu" :key="group.title" class="mobile-nav-group">
             <p>{{ group.title }}</p>
-            <a v-for="item in group.items" :key="item" href="/#lead-end" @click="closeMobileMenu">
-              {{ item }}
+            <a v-for="item in group.items" :key="item.label" :href="item.href" @click="closeMobileMenu">
+              {{ item.label }}
             </a>
           </div>
         </template>
