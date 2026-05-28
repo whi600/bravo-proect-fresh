@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useRoute } from 'vue-router'
-import bravoLogo from '../assets/bravo-logo.png'
+import bravoLogo from '../assets/bravo-logo.svg'
 import { company } from '../data/siteData'
 
 const route = useRoute()
@@ -172,6 +172,7 @@ watch(
         aria-controls="mobile-menu"
         @click.stop="toggleMobileMenu"
       >
+        <span class="mobile-menu-label">Меню</span>
         <span></span>
         <span></span>
         <span></span>
