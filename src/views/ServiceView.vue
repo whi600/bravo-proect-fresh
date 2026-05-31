@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import LeadForm from '../components/LeadForm.vue'
+import cosmeticApartmentImage from '../assets/service-cosmetic-3d-apartment.webp'
 import { repairTypes, reviews, servicePages } from '../data/siteData'
 
 const route = useRoute()
@@ -18,22 +19,37 @@ const serviceLabel = computed(() => service.value?.title?.toLowerCase() || 'ре
 const serviceAboutTitle = computed(() => `Что такое ${serviceLabel.value}`)
 const serviceAboutItems = computed(() => [
   {
-    title: 'Какой результат получает клиент',
-    text:
-      page.value?.heroLead ||
-      'Продумываем состав работ, бюджет и порядок этапов под состояние объекта.',
+    title:
+      route.params.slug === 'kosmeticheskij-remont'
+        ? 'Простое обновление без сложной стройки'
+        : 'Какой результат получает клиент',
+    paragraphs:
+      route.params.slug === 'kosmeticheskij-remont'
+        ? [
+            'Косметический ремонт — это самый быстрый и бюджетный способ освежить квартиру без перепланировки, переноса стен и сложных инженерных работ. Его выбирают, когда квартира в целом исправна, но отделка устарела: обои выцвели, краска потеряла вид, пол выглядит уставшим, а интерьер больше не ощущается чистым и современным.',
+            'В такой формат обычно входят подготовка поверхностей, поклейка обоев или окраска стен, обновление потолков, замена напольного покрытия, плинтусов, розеток, выключателей, светильников и части сантехники. Основная задача — быстро привести жильё в аккуратное состояние и сделать его приятным для жизни, аренды или продажи.',
+            'При этом косметический ремонт не предполагает серьёзную перепланировку, замену всех коммуникаций и глубокое восстановление оснований. Если после осмотра мы видим скрытые проблемы, заранее объясняем, какие работы лучше вынести в отдельный этап, чтобы клиент понимал реальный объём до старта.',
+          ]
+        : [
+            page.value?.heroLead ||
+              'Продумываем состав работ, бюджет и порядок этапов под состояние объекта.',
+          ],
     image:
-      'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=80',
+      route.params.slug === 'kosmeticheskij-remont'
+        ? cosmeticApartmentImage
+        : 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'Что входит в работу',
-    text: (page.value?.whatIncluded || []).join(', ') + '.',
+    paragraphs: [(page.value?.whatIncluded || []).join(', ') + '.'],
     image:
       'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'Как держим процесс под контролем',
-    text: 'Перед стартом фиксируем смету, последовательность работ и точки согласования. Клиент видит, что происходит на объекте, без ежедневного ручного контроля.',
+    paragraphs: [
+      'Перед стартом фиксируем смету, последовательность работ и точки согласования. Клиент видит, что происходит на объекте, без ежедневного ручного контроля.',
+    ],
     image:
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
   },
@@ -105,7 +121,9 @@ const serviceAdvantages = computed(() => [
           >
             <summary>{{ item.title }}</summary>
             <div class="service-about-body">
-              <p>{{ item.text }}</p>
+              <div class="service-about-copy">
+                <p v-for="paragraph in item.paragraphs" :key="paragraph">{{ paragraph }}</p>
+              </div>
               <img :src="item.image" :alt="item.title" />
             </div>
           </details>
