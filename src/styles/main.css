@@ -630,53 +630,21 @@ a {
 
 .repair-price-icon {
   position: relative;
-  display: grid;
-  place-items: center;
-  width: 78px;
-  height: 78px;
-  margin-bottom: 4px;
-  border-radius: 24px;
-  background: rgba(250, 247, 240, 0.88);
-  box-shadow: 0 16px 36px rgba(47, 48, 42, 0.1);
+  width: 112px;
+  height: 112px;
+  margin-bottom: 2px;
+  border-radius: 28px;
+  background: rgba(250, 247, 240, 0.72);
+  box-shadow: 0 16px 36px rgba(47, 48, 42, 0.08);
+  overflow: hidden;
 }
 
-.repair-price-icon::before,
-.repair-price-icon::after,
-.repair-price-icon span {
-  content: '';
-  position: absolute;
-  border-radius: 999px;
-}
-
-.repair-price-icon::before {
-  width: 34px;
-  height: 34px;
-  border: 3px solid var(--clay);
-}
-
-.repair-price-icon::after {
-  width: 42px;
-  height: 8px;
-  background: var(--olive);
-  transform: rotate(-28deg) translate(8px, 17px);
-}
-
-.repair-price-icon span {
-  width: 10px;
-  height: 42px;
-  background: var(--terracotta);
-  transform: rotate(28deg) translate(-16px, 0);
-}
-
-.repair-price-card-capital .repair-price-icon::before {
-  border-radius: 10px;
-  transform: rotate(45deg);
-}
-
-.repair-price-card-exclusive .repair-price-icon::before {
-  width: 40px;
-  height: 26px;
-  border-radius: 999px 999px 10px 10px;
+.repair-price-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
 }
 
 .repair-price-ribbon {

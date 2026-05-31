@@ -2,6 +2,9 @@
 import { computed, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import LeadForm from '../components/LeadForm.vue'
+import repairFormatCapital from '../assets/repair-format-capital.png'
+import repairFormatCosmetic from '../assets/repair-format-cosmetic.png'
+import repairFormatExclusive from '../assets/repair-format-exclusive.png'
 import {
   company,
   estimateExamples,
@@ -30,6 +33,7 @@ const repairPriceTypes = [
     title: 'Косметический ремонт',
     price: 'от 2999 руб. за м²',
     tone: 'cosmetic',
+    image: repairFormatCosmetic,
     items: [
       'Поклейка стен обоями (винил, флизелин)',
       'Окраска радиаторов отопления',
@@ -44,6 +48,7 @@ const repairPriceTypes = [
     title: 'Капитальный ремонт',
     price: 'от 4499 руб. за м²',
     tone: 'capital',
+    image: repairFormatCapital,
     items: [
       'Восстановление черновой отделки',
       'Выравнивание стен, потолков, полов',
@@ -58,6 +63,7 @@ const repairPriceTypes = [
     title: 'Эксклюзивный ремонт',
     price: 'от 8999 руб. за м²',
     tone: 'exclusive',
+    image: repairFormatExclusive,
     items: [
       'Работы по дизайн-проекту',
       'Устройство многоуровневых потолков с подсветкой',
@@ -236,7 +242,7 @@ function submitQuiz() {
             :class="`repair-price-card-${type.tone}`"
           >
             <div class="repair-price-icon" aria-hidden="true">
-              <span></span>
+              <img :src="type.image" :alt="type.title" />
             </div>
             <h3>{{ type.title }}</h3>
             <p class="repair-price-ribbon">{{ type.price }}</p>
