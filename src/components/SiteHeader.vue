@@ -2,7 +2,7 @@
 import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useRoute } from 'vue-router'
-import bravoLogo from '../assets/bravo-logo.svg'
+import bravoLogo from '../assets/bravo-logo-5.png'
 import { company } from '../data/siteData'
 
 const route = useRoute()
