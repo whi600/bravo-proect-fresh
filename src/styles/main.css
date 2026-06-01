@@ -256,6 +256,10 @@ a {
   width: min(760px, calc(100vw - 32px));
 }
 
+.mega-menu-services {
+  width: min(360px, calc(100vw - 32px));
+}
+
 .mega-menu-group {
   display: grid;
   align-content: start;
