@@ -956,6 +956,322 @@ textarea {
   font-weight: 600;
 }
 
+.renovation-scenario-section {
+  background: rgba(250, 247, 240, 0.54);
+}
+
+.renovation-scenario-head {
+  max-width: 780px;
+}
+
+.renovation-scenario-head p:not(.eyebrow) {
+  max-width: 68ch;
+  color: rgba(47, 48, 42, 0.72);
+}
+
+.renovation-scenario {
+  border: 1px solid rgba(143, 90, 60, 0.16);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  background: rgba(250, 247, 240, 0.84);
+  box-shadow: var(--shadow-soft);
+}
+
+.scenario-step {
+  padding: 0 0 24px;
+  border-bottom: 1px solid rgba(143, 90, 60, 0.14);
+}
+
+.scenario-step + .scenario-step {
+  padding-top: 24px;
+}
+
+.scenario-step-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.scenario-step-head p {
+  margin: 0;
+  color: var(--olive);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.scenario-step-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  color: rgba(47, 48, 42, 0.48);
+  background: rgba(47, 48, 42, 0.08);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.scenario-step-badge.is-done {
+  color: var(--milk);
+  background: var(--graphite);
+}
+
+.scenario-format-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.scenario-format-card,
+.scenario-pill {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--graphite);
+  font: inherit;
+  text-align: left;
+  background: rgba(244, 239, 230, 0.78);
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.scenario-format-card {
+  min-height: 116px;
+  padding: 18px;
+}
+
+.scenario-format-card strong,
+.scenario-format-card span,
+.scenario-pill strong,
+.scenario-pill span {
+  display: block;
+}
+
+.scenario-format-card strong {
+  margin-bottom: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.scenario-format-card span,
+.scenario-pill span {
+  color: rgba(47, 48, 42, 0.6);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.scenario-format-card:hover,
+.scenario-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(184, 102, 69, 0.28);
+}
+
+.scenario-format-card.is-active,
+.scenario-pill.is-active {
+  border-color: var(--graphite);
+  color: var(--milk);
+  background: var(--graphite);
+}
+
+.scenario-format-card.is-active span,
+.scenario-pill.is-active span {
+  color: rgba(250, 247, 240, 0.68);
+}
+
+.scenario-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scenario-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+
+.scenario-pill > span:first-child {
+  color: var(--clay);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.scenario-pill.is-active > span:first-child {
+  color: rgba(250, 247, 240, 0.8);
+}
+
+.scenario-pill-stack {
+  display: grid;
+  gap: 2px;
+  min-width: 136px;
+}
+
+.scenario-result {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+  gap: 28px;
+  padding-top: 30px;
+}
+
+.scenario-gallery {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.scenario-main-image,
+.scenario-thumbs img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.scenario-main-image {
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  box-shadow: 0 18px 38px rgba(47, 48, 42, 0.12);
+}
+
+.scenario-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.scenario-thumbs button {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.58;
+  overflow: hidden;
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease;
+}
+
+.scenario-thumbs button.is-active {
+  border-color: var(--graphite);
+  opacity: 1;
+}
+
+.scenario-thumbs img {
+  aspect-ratio: 4 / 3;
+}
+
+.scenario-summary {
+  min-width: 0;
+}
+
+.scenario-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+  color: rgba(47, 48, 42, 0.56);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.scenario-breadcrumb span {
+  color: rgba(143, 90, 60, 0.62);
+}
+
+.scenario-summary h3 {
+  margin-bottom: 8px;
+}
+
+.scenario-summary > p:not(.scenario-breadcrumb):not(.scenario-list-title) {
+  max-width: 58ch;
+  color: rgba(47, 48, 42, 0.72);
+}
+
+.scenario-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 24px 0;
+  border-radius: 14px;
+  background: rgba(143, 90, 60, 0.16);
+  overflow: hidden;
+}
+
+.scenario-stats div {
+  min-width: 0;
+  padding: 16px;
+  background: rgba(250, 247, 240, 0.92);
+}
+
+.scenario-stats span,
+.scenario-list-title {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--olive);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.scenario-stats strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.05;
+}
+
+.scenario-summary ul {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.scenario-summary li {
+  position: relative;
+  padding-left: 24px;
+  color: rgba(47, 48, 42, 0.76);
+}
+
+.scenario-summary li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.64em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--clay);
+}
+
+.scenario-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.scenario-hint {
+  margin: 22px 0 0;
+  color: rgba(47, 48, 42, 0.46);
+  font-weight: 700;
+  text-align: center;
+}
+
 .service-flow-head {
   max-width: 820px;
 }
@@ -1488,6 +1804,7 @@ textarea {
   .hero-grid,
   .quiz-grid,
   .lead-grid,
+  .scenario-result,
   .service-columns,
   .service-advantages-layout {
     grid-template-columns: 1fr;
@@ -1501,6 +1818,7 @@ textarea {
   .reviews-grid,
   .service-examples-grid,
   .service-reviews-grid,
+  .scenario-format-grid,
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1716,6 +2034,8 @@ textarea {
   .service-scope-grid,
   .service-examples-grid,
   .service-reviews-grid,
+  .scenario-format-grid,
+  .scenario-stats,
   .repair-price-grid,
   .faq-reviews-grid,
   .footer-grid {
@@ -1750,6 +2070,32 @@ textarea {
   .service-example-card,
   .service-example-card img {
     min-height: 270px;
+  }
+
+  .renovation-scenario {
+    padding: 18px;
+  }
+
+  .scenario-format-card {
+    min-height: 104px;
+    padding: 15px;
+  }
+
+  .scenario-pill-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .scenario-pill {
+    width: 100%;
+  }
+
+  .scenario-result {
+    gap: 18px;
+  }
+
+  .scenario-actions .btn {
+    width: 100%;
   }
 
   .service-advantages-layout h2 {

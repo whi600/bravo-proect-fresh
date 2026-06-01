@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import LeadForm from '../components/LeadForm.vue'
+import RenovationScenario from '../components/RenovationScenario.vue'
 import cosmeticApartmentImage from '../assets/service-cosmetic-3d-apartment.webp'
 import { repairTypes, reviews, servicePages } from '../data/siteData'
 
@@ -130,6 +131,8 @@ const serviceAdvantages = computed(() => [
         </div>
       </div>
     </section>
+
+    <RenovationScenario :current-slug="route.params.slug" />
 
     <section class="section section-soft service-examples-section">
       <div class="container container-wide">
