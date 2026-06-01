@@ -12,14 +12,11 @@ const activeMobileMenu = ref('main')
 
 const serviceMenu = [
   {
-    title: 'Тип ремонта',
+    title: 'Форматы ремонта',
     items: [
       { label: 'Косметический ремонт', href: '/uslugi/kosmeticheskij-remont' },
       { label: 'Капитальный ремонт', href: '/uslugi/kapitalnyj-remont' },
-      { label: 'Ремонт новостройки', href: '/uslugi/novostroyka' },
-      { label: 'Ремонт ванной', href: '/uslugi/remont-vannoj' },
-      { label: 'Ремонт кухни', href: '/uslugi/remont-kuhni' },
-      { label: 'Дизайнерский ремонт', href: '/uslugi/dizajnerskij-remont' },
+      { label: 'Эксклюзивный ремонт', href: '/uslugi/dizajnerskij-remont' },
     ],
   },
   {
