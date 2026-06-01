@@ -117,10 +117,10 @@ function submitQuiz() {
       <div class="container container-wide hero-grid">
         <div>
           <p class="eyebrow">Ремонт под ключ в Перми</p>
-          <h1>Отделка квартир с понятной сметой, контролем качества и реальными сроками</h1>
+          <h1>Ремонт квартир с понятной сметой</h1>
           <p class="hero-lead">
-            Берём на себя замер, смету, материалы, черновые и чистовые этапы. Вы получаете
-            управляемый процесс и один ответственный канал связи.
+            Берём на себя замер, материалы, черновые и чистовые этапы. Вы получаете контроль
+            качества, реальные сроки и один ответственный канал связи.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#quiz">Рассчитать стоимость</a>
@@ -249,7 +249,9 @@ function submitQuiz() {
             <ul>
               <li v-for="item in type.items" :key="item">{{ item }}</li>
             </ul>
-            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`">Подробнее о ремонте</RouterLink>
+            <RouterLink class="text-link" :to="`/uslugi/${type.slug}`"
+              >Подробнее о ремонте</RouterLink
+            >
           </article>
         </div>
       </div>
