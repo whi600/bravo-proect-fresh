@@ -111,10 +111,6 @@ watch(
           </div>
         </div>
 
-        <a v-for="item in navItems.slice(0, 2)" :key="item.label" :href="item.href">{{
-          item.label
-        }}</a>
-
         <div class="nav-dropdown">
           <a href="/#types">Виды работ</a>
           <div class="mega-menu mega-menu-works">
@@ -126,6 +122,10 @@ watch(
             </div>
           </div>
         </div>
+
+        <a v-for="item in navItems.slice(0, 2)" :key="item.label" :href="item.href">{{
+          item.label
+        }}</a>
 
         <a v-for="item in navItems.slice(2)" :key="item.label" :href="item.href">{{
           item.label
