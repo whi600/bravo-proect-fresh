@@ -117,8 +117,7 @@ export const portfolioCases = [
     task: 'Подготовить квартиру под аренду: износостойкие решения и быстрый цикл работ.',
     workDone:
       'Выравнивание стен, кварц-винил, моющаяся краска, локальные светильники, компактная кухня и санузел “под ключ”.',
-    result:
-      'Сдали на 4 дня раньше графика, владелец запустил аренду через неделю после сдачи.',
+    result: 'Сдали на 4 дня раньше графика, владелец запустил аренду через неделю после сдачи.',
     image:
       'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80',
     relatedService: 'novostroyka',
@@ -133,8 +132,7 @@ export const portfolioCases = [
     task: 'Заменить всё инженерное ядро и сделать светлый санузел с лёгким уходом.',
     workDone:
       'Новая гидроизоляция, разводка воды с ревизией, подвесная инсталляция, керамогранит, подсветка и мебель по размерам.',
-    result:
-      'Проверка на протечки и нагрузку пройдена, переданы инструкции по обслуживанию узлов.',
+    result: 'Проверка на протечки и нагрузку пройдена, переданы инструкции по обслуживанию узлов.',
     image:
       'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1600&q=80',
     relatedService: 'remont-vannoj',
@@ -218,11 +216,7 @@ export const servicePages = {
     heroTitle: 'Ремонт вторички под ключ в Перми',
     heroLead:
       'Делаем вторичный фонд предсказуемым: аккуратный демонтаж, новая инженерия, чистовой интерьер.',
-    value: [
-      'Безопасный демонтаж и вывоз',
-      'Замена слабых инженерных узлов',
-      'Поэтапный фотоотчёт',
-    ],
+    value: ['Безопасный демонтаж и вывоз', 'Замена слабых инженерных узлов', 'Поэтапный фотоотчёт'],
     whatIncluded: [
       'Обследование и дефектовка',
       'Демонтаж старых покрытий',
@@ -244,8 +238,7 @@ export const servicePages = {
   },
   'kosmeticheskij-remont': {
     heroTitle: 'Косметический ремонт квартиры',
-    heroLead:
-      'Быстро обновляем интерьер без лишнего строительного шума и затянутых сроков.',
+    heroLead: 'Быстро обновляем интерьер без лишнего строительного шума и затянутых сроков.',
     value: ['Короткий цикл', 'Аккуратные финиши', 'Прозрачная смета до старта'],
     whatIncluded: [
       'Подготовка стен и потолка',
@@ -467,7 +460,12 @@ export const workPages = {
     lead: 'Выравниваем стены под плитку, покраску, обои и декоративные покрытия с контролем геометрии.',
     image:
       'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80',
-    includes: ['Проверка перепадов', 'Подготовка основания', 'Установка маяков', 'Нанесение и подрезка смеси'],
+    includes: [
+      'Проверка перепадов',
+      'Подготовка основания',
+      'Установка маяков',
+      'Нанесение и подрезка смеси',
+    ],
     result: ['Ровная плоскость', 'Понятный расход материалов', 'Основа под чистовую отделку'],
   },
   'shpatlevka-sten': {
@@ -548,7 +546,12 @@ export const workPages = {
     lead: 'Монтируем тёплый пол с правильным расположением контуров, датчиками и проверкой перед закрытием.',
     image:
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80',
-    includes: ['Разметка зон', 'Монтаж нагревательных элементов', 'Подключение датчика', 'Проверка системы'],
+    includes: [
+      'Разметка зон',
+      'Монтаж нагревательных элементов',
+      'Подключение датчика',
+      'Проверка системы',
+    ],
     result: ['Комфортный обогрев', 'Безопасное подключение', 'Проверка до чистового покрытия'],
   },
   'natyazhnoj-potolok': {
@@ -624,3 +627,417 @@ export const workPages = {
     result: ['Рабочие системы', 'Аккуратный финиш', 'Проверка перед сдачей'],
   },
 }
+
+const donorWorkData = {
+  'shtukaturka-sten': {
+    donorUrl: 'https://bravo-remont.ru/shtukaturka-sten',
+    title: 'Штукатурка стен в квартире',
+    priceFrom: 'от 220 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.4.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.4.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.4.JPG',
+    ],
+    description: [
+      'Штукатурка стен нужна, когда основание имеет перепады, завалы углов, трещины или не подходит под чистовую отделку. После выравнивания поверхность становится готовой под плитку, обои, покраску или декоративные покрытия.',
+      'Перед началом проверяем геометрию, подбираем смесь под основание и выставляем маяки там, где нужна точная плоскость.',
+    ],
+    priceRows: [
+      { name: 'Оштукатуривание стен', unit: 'м²', price: '220 ₽' },
+      { name: 'Оштукатуривание стен по маякам', unit: 'м²', price: '330 ₽' },
+      { name: 'Оштукатуривание стен неплоской формы', unit: 'м²', price: '500 ₽' },
+      { name: 'Декоративная штукатурка стен', unit: 'м²', price: 'от 400 ₽' },
+      { name: 'Оштукатуривание стен в ванной комнате', unit: 'м²', price: '500 ₽' },
+      { name: 'Заделка трещин, рустов, штроб до 30 мм', unit: 'пог. м', price: '80 ₽' },
+    ],
+  },
+  'shpatlevka-sten': {
+    donorUrl: 'https://bravo-remont.ru/shpatlevka-sten',
+    title: 'Шпатлевка стен в квартире',
+    priceFrom: 'от 100 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.3.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.3.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.3.JPG',
+    ],
+    description: [
+      'Шпатлевка убирает мелкие дефекты после штукатурки или листовых материалов и готовит стены под финишное покрытие.',
+      'Работа особенно важна под покраску: на свету видны даже небольшие риски, переходы и неровности.',
+    ],
+    priceRows: [
+      { name: 'Шпатлевка и шлифовка стен', unit: 'м²', price: '200 ₽' },
+      { name: 'Шпатлевка и шлифовка стен Шитрок', unit: 'м²', price: '100 ₽' },
+      { name: 'Шпатлевка и шлифовка стен Шитрок на 2 раза', unit: 'м²', price: '190 ₽' },
+      { name: 'Шпатлевка, шлифовка и окраска молдинга', unit: 'пог. м', price: '200 ₽' },
+      { name: 'Расшивка швов ГКЛ, сетка, шпатлевка шва', unit: 'пог. м', price: '70 ₽' },
+    ],
+  },
+  'pokraska-sten': {
+    donorUrl: 'https://bravo-remont.ru/pokraska-sten',
+    title: 'Покраска стен в квартире',
+    priceFrom: 'от 130 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.1.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.1.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.1.JPG',
+    ],
+    description: [
+      'Покраска стен требует ровной подготовки, правильного грунтования и аккуратной работы с углами, откосами и примыканиями.',
+      'Красим в нужное количество слоев, защищаем помещение и проверяем покрытие при боковом свете.',
+    ],
+    priceRows: [
+      { name: 'Окраска стен ВД краской до двух слоев', unit: 'м²', price: '130 ₽' },
+      { name: 'Высококачественная окраска ВД краской до трех слоев', unit: 'м²', price: '170 ₽' },
+      { name: 'Окраска стен масляной краской', unit: 'м²', price: '230 ₽' },
+    ],
+  },
+  'poklejka-oboev': {
+    donorUrl: 'https://bravo-remont.ru/poklejka-oboev',
+    title: 'Поклейка обоев в квартире',
+    priceFrom: 'от 150 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.5.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.5.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.5.jpg',
+    ],
+    description: [
+      'Поклейка обоев начинается с подготовки стен, разметки полотен и подбора клея под материал.',
+      'На объекте контролируем стыки, подрезку, рисунок и чистоту финишной поверхности.',
+    ],
+    priceRows: [
+      { name: 'Оклеивание стен обоями под покраску', unit: 'м²', price: '150 ₽' },
+      { name: 'Оклеивание стен обоями винил, флизелин', unit: 'м²', price: '200 ₽' },
+      { name: 'Оклеивание стен обойным бордюром', unit: 'пог. м', price: '60 ₽' },
+      {
+        name: 'Оклеивание стен текстильными или декоративными обоями',
+        unit: 'м²',
+        price: 'от 350 ₽',
+      },
+      { name: 'Оклеивание стен фотообоями', unit: 'м²', price: 'от 800 ₽' },
+      { name: 'Жидкие обои', unit: 'м²', price: 'от 250 ₽' },
+    ],
+  },
+  'plitka-na-stenu': {
+    donorUrl: 'https://bravo-remont.ru/ukladka-plitki-na-stenu',
+    title: 'Укладка плитки на стену',
+    priceFrom: 'от 700 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.6.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.6.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel1/1.6.JPG',
+    ],
+    description: [
+      'Облицовка стен плиткой требует ровного основания, продуманной раскладки и точной подрезки в углах, нишах и около сантехники.',
+      'Работаем с керамической плиткой, керамогранитом, мозаикой и природным камнем.',
+    ],
+    priceRows: [
+      { name: 'Облицовка стен керамической плиткой 20х30–40х40', unit: 'м²', price: '700 ₽' },
+      { name: 'Облицовка стен плиткой менее 20х30 или более 40х40', unit: 'м²', price: '900 ₽' },
+      { name: 'Облицовка стен керамогранитом', unit: 'м²', price: '1 000 ₽' },
+      { name: 'Облицовка стен природным камнем', unit: 'м²', price: '1 100 ₽' },
+      { name: 'Облицовка стен мозаикой', unit: 'м²', price: '1 300 ₽' },
+      { name: 'Подрезка края плитки под 45 градусов', unit: 'пог. м', price: '550 ₽' },
+    ],
+  },
+  'styazhka-pola': {
+    donorUrl: 'https://bravo-remont.ru/styazhka-pola',
+    title: 'Стяжка пола',
+    priceFrom: 'от 270 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.1.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.1.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.1.JPG',
+    ],
+    description: [
+      'Стяжка формирует ровное и стабильное основание под плитку, ламинат, кварц-винил и другие покрытия.',
+      'Перед заливкой проверяем уровень, высоты дверных проемов, перепады между помещениями и необходимость армирования.',
+    ],
+    priceRows: [
+      { name: 'Цементная стяжка толщиной менее 50 мм', unit: 'м²', price: '270 ₽' },
+      { name: 'Цементная стяжка по маякам до 70 мм', unit: 'м²', price: '380 ₽' },
+      { name: 'Армирующая сетка для укрепления стяжки', unit: 'м²', price: '130 ₽' },
+      { name: 'Бетонный пол с упрочняющим слоем', unit: 'м²', price: '520 ₽' },
+    ],
+  },
+  'ukladka-plitki': {
+    donorUrl: 'https://bravo-remont.ru/ukladka-plitki',
+    title: 'Укладка плитки',
+    priceFrom: 'от 1 000 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.3.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.3.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.3.2.jpg',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.3.JPG',
+    ],
+    description: [
+      'Укладка плитки включает подготовку основания, раскладку, подрезку, формирование швов и аккуратную затирку.',
+      'Сразу согласуем направление укладки, пороги, примыкания к стенам и расположение видимых подрезок.',
+    ],
+    priceRows: [
+      { name: 'Облицовка пола керамической плиткой', unit: 'м²', price: '1 000 ₽' },
+      { name: 'Облицовка стен керамической плиткой 20х30–40х40', unit: 'м²', price: '700 ₽' },
+      { name: 'Облицовка стен плиткой менее 20х30 или более 40х40', unit: 'м²', price: '900 ₽' },
+      { name: 'Подрезка края плитки под 45 градусов', unit: 'пог. м', price: '550 ₽' },
+      { name: 'Затирка плитки эпоксидным составом', unit: 'м²', price: '180 ₽' },
+    ],
+  },
+  'ukladka-laminata': {
+    donorUrl: 'https://bravo-remont.ru/ukladka-laminata',
+    title: 'Укладка ламината',
+    priceFrom: 'от 250 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.4.1.jpg',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.4.1.jpg',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.4.JPG',
+    ],
+    description: [
+      'Ламинат укладывается только на подготовленное основание с правильной подложкой и компенсационными зазорами.',
+      'Перед монтажом проверяем перепады пола, направление света, дверные проемы и примыкания к другим покрытиям.',
+    ],
+    priceRows: [
+      { name: 'Устройство покрытия пола из ламината на защелках', unit: 'м²', price: '250 ₽' },
+      { name: 'Герметизация стыков ламината', unit: 'м²', price: '60 ₽' },
+    ],
+  },
+  gidroizolyaciya: {
+    donorUrl: 'https://bravo-remont.ru/gidroizolyaciya-pola',
+    title: 'Гидроизоляция пола',
+    priceFrom: 'от 40 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.1.JPG',
+    gallery: ['https://bravo-remont.ru/images/vidy-rabot/razdel2/2.1.JPG'],
+    description: [
+      'Гидроизоляция защищает влажные зоны от протечек и нужна перед плиткой, сантехническими работами и устройством пола.',
+      'Особое внимание уделяем углам, примыканиям, вводам труб и зонам около ванны, душевой и раковины.',
+    ],
+    priceRows: [
+      { name: 'Обмазочная гидроизоляция пола', unit: 'м²', price: '250 ₽' },
+      { name: 'Гидроизоляция пола из полиэтиленовой пленки', unit: 'м²', price: '40 ₽' },
+    ],
+  },
+  'teplyj-pol': {
+    donorUrl: 'https://bravo-remont.ru/montazh-teplogo-pola',
+    title: 'Монтаж теплого пола',
+    priceFrom: 'от 350 ₽',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel2/2.8.JPG',
+    gallery: ['https://bravo-remont.ru/images/vidy-rabot/razdel2/2.8.JPG'],
+    description: [
+      'Теплый пол монтируется с учетом будущей мебели, сантехники, зон прохода и покрытия.',
+      'Перед закрытием системы проверяем датчики, подключение и работоспособность нагревательных элементов.',
+    ],
+    priceRows: [
+      { name: 'Монтаж датчика теплого пола', unit: 'шт.', price: '350 ₽' },
+      { name: 'Монтаж и подключение кабельного теплого пола', unit: 'м²', price: '450 ₽' },
+      { name: 'Монтаж и подключение пленочного теплого пола', unit: 'м²', price: '600 ₽' },
+    ],
+  },
+  'natyazhnoj-potolok': {
+    donorUrl: 'https://bravo-remont.ru/natyazhnoj-potolok',
+    title: 'Монтаж натяжного потолка',
+    priceFrom: 'от 350 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.2.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.2.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.2.2.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.2.JPG',
+    ],
+    description: [
+      'Натяжной потолок быстро закрывает основание, позволяет встроить свет и получить ровную плоскость без мокрых процессов.',
+      'На замере фиксируем геометрию помещения, светильники, карнизы, обход труб и особенности примыканий.',
+    ],
+    priceRows: [
+      { name: 'Натяжной потолок Бельгия/Китай', unit: 'м²', price: 'от 350 ₽' },
+      { name: 'Натяжной потолок Германия', unit: 'м²', price: 'от 900 ₽' },
+    ],
+  },
+  'pokraska-potolka': {
+    donorUrl: 'https://bravo-remont.ru/pokraska-potolka',
+    title: 'Покраска потолка',
+    priceFrom: 'от 80 ₽/пог. м',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.4.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.4.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.4.2.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.4.jpg',
+    ],
+    description: [
+      'Покраска потолка требует ровного основания, качественной шлифовки и аккуратного нанесения без полос.',
+      'Перед окраской защищаем стены и пол, грунтуем поверхность и проверяем результат при рабочем освещении.',
+    ],
+    priceRows: [
+      { name: 'Окраска багета до 70 мм', unit: 'пог. м', price: '80 ₽' },
+      { name: 'Окраска потолка ВД краской до двух слоев', unit: 'м²', price: '165 ₽' },
+      { name: 'Высококачественная окраска ВД краской до трех слоев', unit: 'м²', price: '200 ₽' },
+      { name: 'Окраска потолка масляной краской', unit: 'м²', price: '310 ₽' },
+      { name: 'Оклеивание потолка обоями под покраску', unit: 'м²', price: '240 ₽' },
+    ],
+  },
+  'shpatlevka-potolka': {
+    donorUrl: 'https://bravo-remont.ru/shpatlevka-i-shlifovka-potolka',
+    title: 'Шпатлевка и шлифовка потолка',
+    priceFrom: 'от 110 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.6.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.6.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.6.JPG',
+    ],
+    description: [
+      'Шпатлевка потолка нужна для подготовки плоскости под покраску, обои или декоративное покрытие.',
+      'Слои наносятся с обязательной шлифовкой, чтобы на потолке не проявились риски и переходы.',
+    ],
+    priceRows: [
+      { name: 'Шпатлевка и шлифовка потолка', unit: 'м²', price: '240 ₽' },
+      { name: 'Шпатлевка и шлифовка потолка Шитрок', unit: 'м²', price: '110 ₽' },
+      { name: 'Шпатлевка и шлифовка потолка Шитрок в два слоя', unit: 'м²', price: '200 ₽' },
+      {
+        name: 'Шпатлевка и шлифовка потолочного плинтуса до 70 мм',
+        unit: 'пог. м',
+        price: '100 ₽',
+      },
+    ],
+  },
+  'podvesnoj-potolok': {
+    donorUrl: 'https://bravo-remont.ru/podvesnoj-potolok',
+    title: 'Монтаж подвесного потолка',
+    priceFrom: 'от 250 ₽/м²',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.1.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.1.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.1.2.jpg',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel3/3.1.jpg',
+    ],
+    description: [
+      'Подвесной потолок используют для выравнивания высоты, скрытия коммуникаций, сложного света и ниш под подсветку.',
+      'Сначала размечаем уровень, затем собираем каркас, обшивку и подготавливаем поверхность под финиш.',
+    ],
+    priceRows: [
+      { name: 'Подвесной потолок из ГКЛ в 1 уровень', unit: 'м²', price: '440 ₽' },
+      { name: 'Подвесной потолок из ГКЛ в 2 уровня', unit: 'м²', price: '520 ₽' },
+      { name: 'Подвесной потолок из ГКЛ в 3 уровня', unit: 'м²', price: '580 ₽' },
+      { name: 'Криволинейный подвесной потолок из ГКЛ', unit: 'м²', price: '800 ₽' },
+      { name: 'Карнизы и ниши под подсветку из ГКЛ до 300 мм', unit: 'пог. м', price: '850 ₽' },
+      { name: 'Подвесной потолок типа Армстронг', unit: 'м²', price: '250 ₽' },
+    ],
+  },
+  santehnika: {
+    donorUrl: 'https://bravo-remont.ru/santexnicheskie-raboty',
+    title: 'Сантехнические работы',
+    priceFrom: 'от 1 200 ₽',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/santexnicheskie-raboty/1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/santexnicheskie-raboty/1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/santexnicheskie-raboty/2.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/santexnicheskie-raboty/3.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/santexnicheskie-raboty/4.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/santexnicheskie-raboty/5.JPG',
+    ],
+    description: [
+      'Выполняем ремонт санузлов, монтаж сантехнических систем и подключение оборудования: ванн, душевых, раковин, унитазов, труб, стояков, смесителей и радиаторов.',
+      'Правильная установка снижает риск протечек, засоров и проблем с водоснабжением после отделки.',
+    ],
+    priceRows: [
+      { name: 'Установка ванны', unit: 'шт.', price: 'от 1 500 ₽' },
+      { name: 'Установка унитаза', unit: 'шт.', price: 'от 1 200 ₽' },
+      { name: 'Установка душевой кабины', unit: 'шт.', price: 'от 3 500 ₽' },
+      { name: 'Установка смесителя', unit: 'шт.', price: 'от 600 ₽' },
+      { name: 'Установка раковины', unit: 'шт.', price: 'от 1 200 ₽' },
+      { name: 'Монтаж труб и стояков', unit: 'точка', price: 'по смете' },
+    ],
+  },
+  elektrika: {
+    donorUrl: 'https://bravo-remont.ru/elektomontazhnye-raboty',
+    title: 'Электомонтажные работы',
+    priceFrom: 'от 30 ₽/пог. м',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/elektomontazhnye-raboty/6.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/elektomontazhnye-raboty/6.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/elektomontazhnye-raboty/6.2.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/elektomontazhnye-raboty/6.3.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/elektomontazhnye-raboty/6.4.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/elektomontazhnye-raboty/6.5.jpg',
+    ],
+    description: [
+      'Электромонтажные работы включают ревизию, штробление, прокладку кабеля, монтаж точек, щита и подключение света.',
+      'Схему собираем под реальные сценарии: кухня, техника, рабочие зоны, свет, санузлы и слаботочные линии.',
+    ],
+    priceRows: [
+      { name: 'Ревизия электропроводки', unit: 'м²', price: 'от 100 ₽' },
+      { name: 'Штробление под проводку в пенобетоне или кирпиче', unit: 'пог. м', price: '200 ₽' },
+      { name: 'Штробление под проводку в бетоне', unit: 'пог. м', price: '300 ₽' },
+      { name: 'Пробивка отверстия под электропроводку', unit: 'шт.', price: '200 ₽' },
+      { name: 'Пробивка отверстия под электроточку ГКЛ/пенобетон', unit: 'шт.', price: '150 ₽' },
+      { name: 'Прокладка электропроводки по штробам', unit: 'пог. м', price: '30 ₽' },
+      {
+        name: 'Прокладка электропроводки с креплением к поверхности',
+        unit: 'пог. м',
+        price: '80 ₽',
+      },
+    ],
+  },
+  demontazh: {
+    donorUrl: 'https://bravo-remont.ru/demontazhnye-raboty',
+    title: 'Демонтажные работы в квартире',
+    priceFrom: 'от 20 ₽/пог. м',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/demontazhnye-raboty/4.1.JPG',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/demontazhnye-raboty/4.1.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/demontazhnye-raboty/4.2.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/demontazhnye-raboty/4.3.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/demontazhnye-raboty/4.4.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/demontazhnye-raboty/4.5.JPG',
+    ],
+    description: [
+      'Демонтаж подготавливает квартиру к ремонту: снимаем старые покрытия, разбираем ненужные конструкции и освобождаем фронт работ.',
+      'Работаем аккуратно, защищаем общие зоны и заранее предупреждаем о шумных этапах.',
+    ],
+    priceRows: [
+      { name: 'Демонтаж потолочной штукатурки, шпатлевки', unit: 'м²', price: '140 ₽' },
+      { name: 'Демонтаж потолочной покраски ВД, побелки', unit: 'м²', price: '110 ₽' },
+      { name: 'Демонтаж потолочной покраски масляной', unit: 'м²', price: '350 ₽' },
+      { name: 'Демонтаж потолочного плинтуса или багета', unit: 'пог. м', price: '20 ₽' },
+      { name: 'Демонтаж потолочной плитки', unit: 'м²', price: '50 ₽' },
+      { name: 'Демонтаж подвесного потолка', unit: 'м²', price: '110 ₽' },
+      { name: 'Демонтаж конструкций из кирпича', unit: 'м³', price: '2 750 ₽' },
+    ],
+  },
+  'montazh-oborudovaniya': {
+    donorUrl: 'https://bravo-remont.ru/podklyuchenie-oborudovaniya',
+    title: 'Подключение оборудования',
+    priceFrom: 'от 150 ₽/пог. м',
+    image: 'https://bravo-remont.ru/images/vidy-rabot/razdel6/6.5.1.jpg',
+    gallery: [
+      'https://bravo-remont.ru/images/vidy-rabot/razdel6/6.5.1.jpg',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel6/6.5.2.JPG',
+      'https://bravo-remont.ru/images/vidy-rabot/razdel6/6.5.jpg',
+    ],
+    description: [
+      'Подключение оборудования выполняется после отделочных работ, когда готовы точки электрики, воды, канализации и крепления.',
+      'Подключаем свет, технику, сантехническое оборудование и проверяем работоспособность перед сдачей.',
+    ],
+    priceRows: [
+      { name: 'Монтаж и подключение точечного светильника', unit: 'шт.', price: '250 ₽' },
+      { name: 'Монтаж и подключение бра, светильника', unit: 'шт.', price: '300 ₽' },
+      { name: 'Монтаж и подключение растрового светильника', unit: 'шт.', price: '400 ₽' },
+      { name: 'Монтаж и подключение люстры', unit: 'шт.', price: '1 200 ₽' },
+      { name: 'Сборка люстры', unit: 'шт.', price: '500 ₽' },
+      { name: 'Монтаж светодиодной ленты', unit: 'пог. м', price: '150 ₽' },
+      { name: 'Подключение духового шкафа, варочной панели', unit: 'шт.', price: '500 ₽' },
+      {
+        name: 'Подключение ванны или душевой кабины с гидромассажем',
+        unit: 'шт.',
+        price: '1 300 ₽',
+      },
+    ],
+  },
+}
+
+Object.entries(donorWorkData).forEach(([slug, data]) => {
+  workPages[slug] = {
+    ...workPages[slug],
+    ...data,
+    advantages: [
+      'Сначала проверяем основание и предупреждаем о рисках до начала работ',
+      'Фиксируем понятный состав работ и ориентир по стоимости',
+      'Работаем аккуратно с примыканиями, углами и видимыми зонами',
+    ],
+  }
+})
