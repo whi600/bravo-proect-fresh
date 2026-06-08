@@ -115,7 +115,9 @@ h3 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
   line-height: 1.08;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  text-wrap: balance;
+  word-break: normal;
 }
 
 h1 {
@@ -620,9 +622,10 @@ a {
   position: relative;
   display: grid;
   gap: 14px;
-  justify-items: start;
+  justify-items: stretch;
   align-content: start;
   min-height: 560px;
+  padding-top: 0;
   overflow: hidden;
 }
 
@@ -630,8 +633,10 @@ a {
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  height: 128px;
-  background: linear-gradient(135deg, rgba(184, 102, 69, 0.16), rgba(111, 117, 88, 0.14));
+  height: 142px;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(250, 247, 240, 0.7), transparent 36%),
+    linear-gradient(135deg, rgba(184, 102, 69, 0.18), rgba(111, 117, 88, 0.16));
   pointer-events: none;
 }
 
@@ -639,21 +644,21 @@ a {
   position: relative;
   display: grid;
   place-items: center;
-  width: 154px;
-  height: 154px;
-  margin: -46px 0 -6px;
-  border-radius: 28px;
-  background: radial-gradient(circle, rgba(250, 247, 240, 0.9), rgba(250, 247, 240, 0.22) 68%);
+  width: 100%;
+  height: 142px;
+  margin: 0 0 2px;
+  border-radius: 18px;
+  background: radial-gradient(circle, rgba(250, 247, 240, 0.82), rgba(250, 247, 240, 0.18) 68%);
   z-index: 1;
 }
 
 .repair-price-icon img {
   display: block;
-  width: 126px;
-  height: 126px;
+  width: 132px;
+  height: 132px;
   object-fit: contain;
-  filter: saturate(1.65) contrast(1.28) brightness(0.94)
-    drop-shadow(0 10px 16px rgba(47, 48, 42, 0.16));
+  filter: saturate(1.95) contrast(1.42) brightness(0.9)
+    drop-shadow(0 11px 14px rgba(47, 48, 42, 0.2));
 }
 
 .repair-price-ribbon {
@@ -1900,7 +1905,7 @@ textarea {
   }
 
   h2 {
-    max-width: 15ch;
+    max-width: none;
   }
 
   .hero-grid {
@@ -1931,9 +1936,9 @@ textarea {
   }
 
   .quiz-copy h2 {
-    max-width: 11ch;
-    font-size: clamp(1.9rem, 10vw, 2.45rem);
-    line-height: 0.98;
+    max-width: none;
+    font-size: clamp(1.78rem, 8.5vw, 2.35rem);
+    line-height: 1.04;
   }
 
   .quiz-copy > p:not(.eyebrow) {
@@ -2046,10 +2051,14 @@ textarea {
   .service-reviews-grid,
   .scenario-format-grid,
   .scenario-stats,
-  .repair-price-grid,
   .faq-reviews-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .repair-price-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .metric-card,
@@ -2066,6 +2075,66 @@ textarea {
   .service-scope-card,
   .repair-price-card {
     min-height: auto;
+  }
+
+  .repair-price-card {
+    gap: 9px;
+    padding: 0 12px 14px;
+    border-radius: 16px;
+  }
+
+  .repair-price-card-exclusive {
+    grid-column: 1 / -1;
+  }
+
+  .repair-price-card::before {
+    height: 104px;
+  }
+
+  .repair-price-icon {
+    height: 104px;
+    margin-bottom: 0;
+    border-radius: 14px;
+  }
+
+  .repair-price-icon img {
+    width: 96px;
+    height: 96px;
+    filter: saturate(1.95) contrast(1.42) brightness(0.9)
+      drop-shadow(0 8px 10px rgba(47, 48, 42, 0.2));
+  }
+
+  .repair-price-card h3 {
+    margin-bottom: 2px;
+    font-size: clamp(1.16rem, 6vw, 1.45rem);
+    line-height: 1.04;
+  }
+
+  .repair-price-ribbon {
+    padding: 7px 9px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .repair-price-card ul {
+    gap: 6px;
+  }
+
+  .repair-price-card li {
+    padding-left: 15px;
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .repair-price-card li:nth-child(n + 4) {
+    display: none;
+  }
+
+  .repair-price-card li::before {
+    top: 0.62em;
+    width: 5px;
+    height: 5px;
   }
 
   .service-about-item summary {
