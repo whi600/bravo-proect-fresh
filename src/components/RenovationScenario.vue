@@ -18,9 +18,8 @@ const formats = [
   {
     id: 'cosmetic',
     label: 'Косметический',
-    sub: 'Быстрое обновление без перепланировки и сложной инженерии.',
+    sub: 'Обновление квартиры без перепланировки: стены, потолки, полы и аккуратная чистовая отделка.',
     priceFrom: 2999,
-    priceTo: 5200,
     weekFrom: 2,
     weekTo: 4,
     includes: [
@@ -39,9 +38,8 @@ const formats = [
   {
     id: 'capital',
     label: 'Капитальный',
-    sub: 'Полный перезапуск квартиры с черновыми работами и коммуникациями.',
+    sub: 'Полный ремонт с демонтажем, выравниванием оснований, инженерией и чистовой отделкой.',
     priceFrom: 4499,
-    priceTo: 9500,
     weekFrom: 6,
     weekTo: 14,
     includes: [
@@ -60,9 +58,8 @@ const formats = [
   {
     id: 'exclusive',
     label: 'Эксклюзивный',
-    sub: 'Реализация дизайн-проекта со сложными узлами и материалами.',
+    sub: 'Реализация дизайн-проекта со сложными узлами, декоративными покрытиями и премиальными материалами.',
     priceFrom: 8999,
-    priceTo: 18000,
     weekFrom: 10,
     weekTo: 22,
     includes: [
@@ -80,30 +77,46 @@ const formats = [
   },
 ]
 
-const propertyTypes = [
-  { id: 'apartment', label: 'Квартира', icon: '□', hasCondition: true, hasRooms: true, area: 58 },
-  { id: 'studio', label: 'Студия', icon: '▣', hasCondition: true, hasRooms: false, area: 32 },
-  { id: 'house', label: 'Дом', icon: '⌂', hasCondition: false, hasRooms: false, area: 140 },
-  { id: 'office', label: 'Офис', icon: '▤', hasCondition: false, hasRooms: false, area: 90 },
+const roomOptions = [
+  { id: 'studio', label: 'Студия', area: 32, add: 0 },
+  { id: 'one', label: '1-комнатная', area: 41, add: 0 },
+  { id: 'two', label: '2-комнатная', area: 58, add: 0 },
+  { id: 'three', label: '3-комнатная', area: 78, add: 150 },
+  { id: 'four', label: '4+ комнаты', area: 110, add: 250 },
 ]
 
-const conditions = [
-  { id: 'newbuild', label: 'Новостройка', sub: 'без отделки', multiplier: 1.08 },
-  { id: 'secondary-clean', label: 'Вторичка', sub: 'с отделкой', multiplier: 1 },
-  { id: 'secondary-old', label: 'Вторичка', sub: 'после старого ремонта', multiplier: 1.16 },
+const ceilingOptions = [
+  { id: 'stretch', label: 'Натяжной потолок', add: 0 },
+  { id: 'paint', label: 'Шпатлевка и покраска', add: 450 },
+  { id: 'gypsum', label: 'ГКЛ потолок', add: 900 },
 ]
 
-const rooms = [
-  { id: 'one', label: '1-комн.', area: 41 },
-  { id: 'two', label: '2-комн.', area: 58 },
-  { id: 'three', label: '3-комн.', area: 78 },
-  { id: 'four', label: '4+ комн.', area: 110 },
+const wallOptions = [
+  { id: 'wallpaper', label: 'Поклейка обоев', add: 0 },
+  { id: 'paint', label: 'Под покраску', add: 650 },
+  { id: 'decor', label: 'Декоративное покрытие', add: 1200 },
+]
+
+const floorOptions = [
+  { id: 'laminate', label: 'Ламинат', add: 0 },
+  { id: 'tile', label: 'Плитка и керамогранит', add: 850 },
+  { id: 'engineered', label: 'Инженерная доска', add: 1300 },
+]
+
+const extraWorks = [
+  { id: 'electric', label: 'Замена электропроводки', price: 55000 },
+  { id: 'sockets', label: 'Розетки и выключатели', price: 12000 },
+  { id: 'demolition', label: 'Демонтаж старых покрытий', price: 28000 },
+  { id: 'bathroom', label: 'Ремонт ванной и санузла', price: 95000 },
 ]
 
 const selectedFormatId = ref(formatMap[props.currentSlug] || 'cosmetic')
-const selectedPropertyId = ref('')
-const selectedConditionId = ref('')
-const selectedRoomId = ref('')
+const selectedRoomId = ref('two')
+const selectedCeilingId = ref('stretch')
+const selectedWallId = ref('wallpaper')
+const selectedFloorId = ref('laminate')
+const selectedExtras = ref(['demolition'])
+const area = ref(58)
 const activeImage = ref(0)
 
 watch(
@@ -117,48 +130,30 @@ watch(
 const selectedFormat = computed(
   () => formats.find((item) => item.id === selectedFormatId.value) || formats[0],
 )
-const selectedProperty = computed(() =>
-  propertyTypes.find((item) => item.id === selectedPropertyId.value),
+const selectedRoom = computed(() => roomOptions.find((item) => item.id === selectedRoomId.value))
+const selectedCeiling = computed(
+  () => ceilingOptions.find((item) => item.id === selectedCeilingId.value) || ceilingOptions[0],
 )
-const selectedCondition = computed(() =>
-  conditions.find((item) => item.id === selectedConditionId.value),
+const selectedWall = computed(
+  () => wallOptions.find((item) => item.id === selectedWallId.value) || wallOptions[0],
 )
-const selectedRoom = computed(() => rooms.find((item) => item.id === selectedRoomId.value))
-
-const needsCondition = computed(() => selectedProperty.value?.hasCondition || false)
-const needsRooms = computed(() => selectedProperty.value?.hasRooms || false)
-const showConditionStep = computed(() => !!selectedProperty.value && needsCondition.value)
-const showRoomsStep = computed(
+const selectedFloor = computed(
+  () => floorOptions.find((item) => item.id === selectedFloorId.value) || floorOptions[0],
+)
+const selectedExtraItems = computed(() =>
+  extraWorks.filter((item) => selectedExtras.value.includes(item.id)),
+)
+const finishAdd = computed(
   () =>
-    !!selectedProperty.value &&
-    needsRooms.value &&
-    (!needsCondition.value || !!selectedCondition.value),
+    selectedCeiling.value.add +
+    selectedWall.value.add +
+    selectedFloor.value.add +
+    (selectedRoom.value?.add || 0),
 )
-const isComplete = computed(
-  () =>
-    !!selectedFormat.value &&
-    !!selectedProperty.value &&
-    (!needsCondition.value || !!selectedCondition.value) &&
-    (!needsRooms.value || !!selectedRoom.value),
-)
-
-const scenarioHint = computed(() => {
-  if (!selectedProperty.value) return 'Выберите тип объекта'
-  if (showConditionStep.value && !selectedCondition.value) return 'Укажите состояние жилья'
-  if (showRoomsStep.value && !selectedRoom.value) return 'Укажите планировку'
-  return 'Сценарий готов'
-})
-
-const area = computed(() => selectedRoom.value?.area || selectedProperty.value?.area || 60)
-const multiplier = computed(() => selectedCondition.value?.multiplier || 1)
-const priceFrom = computed(() => roundHundreds(selectedFormat.value.priceFrom * multiplier.value))
-const priceTo = computed(() => roundHundreds(selectedFormat.value.priceTo * multiplier.value))
-const totalFrom = computed(() => priceFrom.value * area.value)
-const totalTo = computed(() => priceTo.value * area.value)
-
-function roundHundreds(value) {
-  return Math.round(value / 100) * 100
-}
+const pricePerMeter = computed(() => selectedFormat.value.priceFrom + finishAdd.value)
+const extraTotal = computed(() => selectedExtraItems.value.reduce((sum, item) => sum + item.price, 0))
+const total = computed(() => pricePerMeter.value * area.value + extraTotal.value)
+const baseTotal = computed(() => selectedFormat.value.priceFrom * area.value)
 
 function formatRub(value) {
   return new Intl.NumberFormat('ru-RU').format(value)
@@ -169,15 +164,15 @@ function selectFormat(id) {
   activeImage.value = 0
 }
 
-function selectProperty(id) {
-  selectedPropertyId.value = id
-  selectedConditionId.value = ''
-  selectedRoomId.value = ''
+function selectRoom(item) {
+  selectedRoomId.value = item.id
+  area.value = item.area
 }
 
-function selectCondition(id) {
-  selectedConditionId.value = id
-  selectedRoomId.value = ''
+function toggleExtra(id) {
+  selectedExtras.value = selectedExtras.value.includes(id)
+    ? selectedExtras.value.filter((item) => item !== id)
+    : [...selectedExtras.value, id]
 }
 </script>
 
@@ -185,11 +180,11 @@ function selectCondition(id) {
   <section class="section renovation-scenario-section">
     <div class="container container-wide">
       <div class="section-head renovation-scenario-head">
-        <p class="eyebrow">Подбор сценария</p>
-        <h2>Настройте ремонт под свой объект</h2>
+        <p class="eyebrow">Калькулятор работ</p>
+        <h2>Соберите состав ремонта</h2>
         <p>
-          Выберите формат, тип помещения и исходное состояние. Блок покажет ориентир по бюджету,
-          срокам и составу работ, чтобы проще понять масштаб ремонта до консультации.
+          Выберите формат, площадь и основные виды отделки. Расчет показывает ориентир по работам до
+          выезда замерщика, а точную смету фиксируем после осмотра объекта.
         </p>
       </div>
 
@@ -217,68 +212,90 @@ function selectCondition(id) {
 
         <div class="scenario-step">
           <div class="scenario-step-head">
-            <span class="scenario-step-badge" :class="{ 'is-done': selectedProperty }">2</span>
-            <p>Тип объекта</p>
+            <span class="scenario-step-badge is-done">2</span>
+            <p>Площадь и комнаты</p>
           </div>
 
-          <div class="scenario-pill-grid">
-            <button
-              v-for="item in propertyTypes"
-              :key="item.id"
-              class="scenario-pill"
-              :class="{ 'is-active': selectedPropertyId === item.id }"
-              type="button"
-              @click="selectProperty(item.id)"
-            >
-              <span aria-hidden="true">{{ item.icon }}</span>
-              {{ item.label }}
-            </button>
+          <div class="scenario-field-grid">
+            <label class="scenario-range">
+              <span>Площадь квартиры</span>
+              <strong>{{ area }} м²</strong>
+              <input v-model.number="area" type="range" min="20" max="160" step="1" />
+            </label>
+
+            <div class="scenario-pill-grid">
+              <button
+                v-for="item in roomOptions"
+                :key="item.id"
+                class="scenario-pill scenario-pill-stack"
+                :class="{ 'is-active': selectedRoomId === item.id }"
+                type="button"
+                @click="selectRoom(item)"
+              >
+                <strong>{{ item.label }}</strong>
+                <span>≈ {{ item.area }} м²</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div v-if="showConditionStep" class="scenario-step">
+        <div class="scenario-step">
           <div class="scenario-step-head">
-            <span class="scenario-step-badge" :class="{ 'is-done': selectedCondition }">3</span>
-            <p>Состояние жилья</p>
+            <span class="scenario-step-badge is-done">3</span>
+            <p>Потолок, стены, пол</p>
           </div>
 
-          <div class="scenario-pill-grid">
-            <button
-              v-for="item in conditions"
-              :key="item.id"
-              class="scenario-pill scenario-pill-stack"
-              :class="{ 'is-active': selectedConditionId === item.id }"
-              type="button"
-              @click="selectCondition(item.id)"
-            >
-              <strong>{{ item.label }}</strong>
-              <span>{{ item.sub }}</span>
-            </button>
+          <div class="scenario-field-grid scenario-finish-grid">
+            <label>
+              <span>Потолок</span>
+              <select v-model="selectedCeilingId">
+                <option v-for="item in ceilingOptions" :key="item.id" :value="item.id">
+                  {{ item.label }}
+                </option>
+              </select>
+            </label>
+            <label>
+              <span>Стены</span>
+              <select v-model="selectedWallId">
+                <option v-for="item in wallOptions" :key="item.id" :value="item.id">
+                  {{ item.label }}
+                </option>
+              </select>
+            </label>
+            <label>
+              <span>Полы</span>
+              <select v-model="selectedFloorId">
+                <option v-for="item in floorOptions" :key="item.id" :value="item.id">
+                  {{ item.label }}
+                </option>
+              </select>
+            </label>
           </div>
         </div>
 
-        <div v-if="showRoomsStep" class="scenario-step">
+        <div class="scenario-step">
           <div class="scenario-step-head">
-            <span class="scenario-step-badge" :class="{ 'is-done': selectedRoom }">4</span>
-            <p>Планировка</p>
+            <span class="scenario-step-badge is-done">4</span>
+            <p>Дополнительные работы</p>
           </div>
 
-          <div class="scenario-pill-grid">
+          <div class="scenario-check-grid">
             <button
-              v-for="item in rooms"
+              v-for="item in extraWorks"
               :key="item.id"
-              class="scenario-pill scenario-pill-stack"
-              :class="{ 'is-active': selectedRoomId === item.id }"
+              class="scenario-check"
+              :class="{ 'is-active': selectedExtras.includes(item.id) }"
               type="button"
-              @click="selectedRoomId = item.id"
+              @click="toggleExtra(item.id)"
             >
+              <span></span>
               <strong>{{ item.label }}</strong>
-              <span>≈ {{ item.area }} м²</span>
+              <small>+ {{ formatRub(item.price) }} ₽</small>
             </button>
           </div>
         </div>
 
-        <div v-if="isComplete" class="scenario-result">
+        <div class="scenario-result">
           <div class="scenario-gallery">
             <img
               class="scenario-main-image"
@@ -302,24 +319,18 @@ function selectCondition(id) {
             <p class="scenario-breadcrumb">
               {{ selectedFormat.label }} ремонт
               <span>/</span>
-              {{ selectedProperty.label }}
-              <template v-if="selectedCondition">
-                <span>/</span>
-                {{ selectedCondition.label }}
-              </template>
-              <template v-if="selectedRoom">
-                <span>/</span>
-                {{ selectedRoom.label }}
-              </template>
+              {{ area }} м²
+              <span>/</span>
+              {{ selectedRoom.label }}
             </p>
 
-            <h3>{{ selectedFormat.label }} ремонт под ваш ввод</h3>
+            <h3>{{ selectedFormat.label }} ремонт по вашему составу</h3>
             <p>{{ selectedFormat.sub }}</p>
 
             <div class="scenario-stats">
               <div>
-                <span>Цена / м²</span>
-                <strong>{{ formatRub(priceFrom) }}–{{ formatRub(priceTo) }} ₽</strong>
+                <span>Базовая цена</span>
+                <strong>от {{ formatRub(selectedFormat.priceFrom) }} ₽/м²</strong>
               </div>
               <div>
                 <span>Срок</span>
@@ -327,11 +338,20 @@ function selectCondition(id) {
               </div>
               <div>
                 <span>Ориентир</span>
-                <strong>{{ formatRub(totalFrom) }}–{{ formatRub(totalTo) }} ₽</strong>
+                <strong>{{ formatRub(total) }} ₽</strong>
               </div>
             </div>
 
-            <p class="scenario-list-title">Что входит</p>
+            <p class="scenario-list-title">Что учли в расчете</p>
+            <ul>
+              <li>Базовые работы: от {{ formatRub(baseTotal) }} ₽ за {{ area }} м²</li>
+              <li>Потолок: {{ selectedCeiling.label }}</li>
+              <li>Стены: {{ selectedWall.label }}</li>
+              <li>Полы: {{ selectedFloor.label }}</li>
+              <li v-for="item in selectedExtraItems" :key="item.id">{{ item.label }}</li>
+            </ul>
+
+            <p class="scenario-list-title">Что входит в формат</p>
             <ul>
               <li v-for="item in selectedFormat.includes" :key="item">{{ item }}</li>
             </ul>
@@ -342,8 +362,6 @@ function selectCondition(id) {
             </div>
           </div>
         </div>
-
-        <p v-else class="scenario-hint">{{ scenarioHint }}</p>
       </div>
     </div>
   </section>

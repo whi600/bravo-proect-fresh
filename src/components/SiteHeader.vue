@@ -9,6 +9,8 @@ const route = useRoute()
 const isHome = computed(() => route.path === '/')
 const mobileMenuOpen = ref(false)
 const activeMobileMenu = ref('main')
+const activeDesktopMenu = ref('')
+let desktopMenuCloseTimer = null
 
 const serviceMenu = [
   {
@@ -82,10 +84,27 @@ function closeMobileMenu() {
   activeMobileMenu.value = 'main'
 }
 
+function openDesktopMenu(menu) {
+  if (desktopMenuCloseTimer) {
+    clearTimeout(desktopMenuCloseTimer)
+  }
+  activeDesktopMenu.value = menu
+}
+
+function scheduleDesktopMenuClose() {
+  if (desktopMenuCloseTimer) {
+    clearTimeout(desktopMenuCloseTimer)
+  }
+  desktopMenuCloseTimer = window.setTimeout(() => {
+    activeDesktopMenu.value = ''
+  }, 3000)
+}
+
 watch(
   () => route.fullPath,
   () => {
     closeMobileMenu()
+    activeDesktopMenu.value = ''
   },
 )
 </script>
@@ -99,7 +118,14 @@ watch(
       </RouterLink>
 
       <nav class="main-nav">
-        <div class="nav-dropdown">
+        <div
+          class="nav-dropdown"
+          :class="{ 'is-open': activeDesktopMenu === 'services' }"
+          @mouseenter="openDesktopMenu('services')"
+          @mouseleave="scheduleDesktopMenuClose"
+          @focusin="openDesktopMenu('services')"
+          @focusout="scheduleDesktopMenuClose"
+        >
           <a :href="isHome ? '#types' : '/#types'">Услуги</a>
           <div class="mega-menu mega-menu-services">
             <div v-for="group in serviceMenu" :key="group.title" class="mega-menu-group">
@@ -111,7 +137,14 @@ watch(
           </div>
         </div>
 
-        <div class="nav-dropdown">
+        <div
+          class="nav-dropdown"
+          :class="{ 'is-open': activeDesktopMenu === 'works' }"
+          @mouseenter="openDesktopMenu('works')"
+          @mouseleave="scheduleDesktopMenuClose"
+          @focusin="openDesktopMenu('works')"
+          @focusout="scheduleDesktopMenuClose"
+        >
           <a href="/#types">Виды работ</a>
           <div class="mega-menu mega-menu-works">
             <div v-for="group in workMenu" :key="group.title" class="mega-menu-group">
