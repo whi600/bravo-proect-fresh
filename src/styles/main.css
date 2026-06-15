@@ -225,12 +225,12 @@ a {
 }
 
 .mega-menu {
-  position: fixed;
-  top: 86px;
-  left: 50vw;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
   display: grid;
   width: min(920px, calc(100vw - 32px));
-  max-height: calc(100dvh - 110px);
+  max-height: calc(100dvh - 128px);
   grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
   gap: 18px;
   padding: 22px;
@@ -795,6 +795,164 @@ textarea {
 .service-process-section {
   position: relative;
   overflow: hidden;
+}
+
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 58px;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(244, 239, 230, 0.96), rgba(244, 239, 230, 0.68)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(143, 90, 60, 0.09) 0,
+      rgba(143, 90, 60, 0.09) 1px,
+      transparent 1px,
+      transparent 76px
+    );
+  pointer-events: none;
+}
+
+.about-hero-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.62fr);
+  gap: 34px;
+  align-items: end;
+}
+
+.about-hero-main {
+  max-width: 860px;
+}
+
+.about-hero-main h1 {
+  max-width: 10.5em;
+  font-size: clamp(3rem, 6.5vw, 6.4rem);
+}
+
+.about-hero-main .hero-lead {
+  max-width: 760px;
+  font-size: clamp(1.05rem, 1.5vw, 1.24rem);
+}
+
+.about-hero-panel {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  color: var(--milk);
+  background: var(--graphite);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-hero-panel::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 26px;
+  width: 86px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--terracotta);
+}
+
+.about-hero-panel p {
+  margin: 0;
+  color: rgba(250, 247, 240, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-hero-panel strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.55rem, 2.4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.04;
+}
+
+.about-hero-points {
+  display: grid;
+  gap: 8px;
+}
+
+.about-hero-points span {
+  padding-top: 10px;
+  border-top: 1px solid rgba(250, 247, 240, 0.14);
+  color: rgba(250, 247, 240, 0.88);
+  font-size: 0.92rem;
+}
+
+.about-intro-grid,
+.about-process-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.about-intro-copy {
+  font-size: 1.03rem;
+  color: rgba(47, 48, 42, 0.76);
+}
+
+.about-principles-grid,
+.about-reviews-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+}
+
+.about-principles-grid .card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.about-principles-grid span {
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--terracotta);
+}
+
+.about-principles-grid h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.about-principles-grid p,
+.about-process-grid p:not(.eyebrow),
+.about-partner-card p {
+  color: rgba(47, 48, 42, 0.74);
+}
+
+.section-dark .about-process-grid p:not(.eyebrow) {
+  color: rgba(250, 247, 240, 0.82);
+}
+
+.about-reviews-grid {
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+}
+
+.about-reviews-grid .review-card {
+  display: grid;
+  gap: 12px;
+  align-content: space-between;
+}
+
+.about-partner-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(260px, 1fr);
+  gap: 24px;
+  align-items: center;
 }
 
 .service-about-section {
@@ -1860,15 +2018,17 @@ textarea {
   padding: 0;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
   min-width: 0;
 }
 
 .case-card img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  min-height: 280px;
+  min-height: 0;
+  max-height: 300px;
 }
 
 .case-card > div {
@@ -2075,6 +2235,9 @@ textarea {
   .scenario-result,
   .service-columns,
   .service-advantages-layout,
+  .about-hero-layout,
+  .about-intro-grid,
+  .about-process-grid,
   .work-intro-grid,
   .work-process-layout {
     grid-template-columns: 1fr;
@@ -2088,6 +2251,8 @@ textarea {
   .reviews-grid,
   .service-examples-grid,
   .service-reviews-grid,
+  .about-principles-grid,
+  .about-reviews-grid,
   .scenario-format-grid,
   .scenario-check-grid,
   .footer-grid {
@@ -2096,6 +2261,10 @@ textarea {
 
   h1 {
     max-width: 18ch;
+  }
+
+  .about-hero-main h1 {
+    max-width: 12ch;
   }
 
   .process-card {
@@ -2166,6 +2335,18 @@ textarea {
 
   .hero-grid {
     gap: 22px;
+  }
+
+  .about-hero {
+    padding-bottom: 44px;
+  }
+
+  .about-hero-layout {
+    gap: 26px;
+  }
+
+  .about-hero-panel {
+    padding: 20px;
   }
 
   .hero-image-wrap {
@@ -2305,6 +2486,9 @@ textarea {
   .service-scope-grid,
   .service-examples-grid,
   .service-reviews-grid,
+  .about-principles-grid,
+  .about-reviews-grid,
+  .about-partner-card,
   .work-scope-grid,
   .scenario-format-grid,
   .scenario-stats,

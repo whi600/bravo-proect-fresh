@@ -12,13 +12,16 @@ import { company } from '../data/siteData'
 
       <div>
         <p class="footer-title">Контакты</p>
-        <p><a href="tel:+73422479957">{{ company.phone }}</a></p>
+        <p>
+          <a href="tel:+73422479957">{{ company.phone }}</a>
+        </p>
         <p>{{ company.address }}</p>
         <p>{{ company.workHours }}</p>
       </div>
 
       <div>
         <p class="footer-title">Быстрый старт</p>
+        <p><a href="/o-kompanii">О компании</a></p>
         <p><a href="/#quiz">Рассчитать стоимость</a></p>
         <p><a href="/#cases">Посмотреть кейсы</a></p>
         <p><a href="/#lead-end">Вызвать замерщика бесплатно</a></p>

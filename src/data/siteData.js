@@ -1,3 +1,22 @@
+import newtonBathWideImage from '../assets/cases/newton-bath-wide.webp'
+import newtonBathImage from '../assets/cases/newton-bath.webp'
+import newtonDemoMainImage from '../assets/cases/newton-demo-main.webp'
+import newtonDemoOpeningImage from '../assets/cases/newton-demo-opening.webp'
+import newtonDemoRoomImage from '../assets/cases/newton-demo-room.webp'
+import newtonDemoWallsImage from '../assets/cases/newton-demo-walls.webp'
+import newtonElectricCorridorImage from '../assets/cases/newton-electric-corridor.webp'
+import newtonElectricMainImage from '../assets/cases/newton-electric-main.webp'
+import newtonElectricRoomImage from '../assets/cases/newton-electric-room.webp'
+import newtonElectricWallImage from '../assets/cases/newton-electric-wall.webp'
+import newtonHallImage from '../assets/cases/newton-hall.webp'
+import newtonRoomImage from '../assets/cases/newton-room.webp'
+import parmaBalconyImage from '../assets/cases/parma-balcony.webp'
+import parmaBathImage from '../assets/cases/parma-bath.webp'
+import parmaBedroomImage from '../assets/cases/parma-bedroom.webp'
+import parmaKitchenAltImage from '../assets/cases/parma-kitchen-alt.webp'
+import parmaKitchenImage from '../assets/cases/parma-kitchen.webp'
+import parmaLivingImage from '../assets/cases/parma-living.webp'
+
 export const company = {
   name: 'BRAVO REMONT',
   city: 'Пермь',
@@ -93,49 +112,47 @@ export const processSteps = [
 export const portfolioCases = [
   {
     id: 1,
-    title: '2-комнатная квартира, ЖК “Арсенал”',
-    area: '62 м²',
-    duration: '104 дня',
-    workCost: '1 420 000 ₽',
-    materialsCost: '730 000 ₽',
-    task: 'Сделать спокойный современный интерьер, спрятать хранение и переработать световые сценарии.',
+    title: 'ЖК “Парма”, капитальный ремонт квартиры',
+    area: 'квартира под ключ',
+    duration: 'чистовая сдача',
+    workCost: 'по смете',
+    materialsCost: 'по ведомости',
+    task: 'Довести квартиру до готового состояния с аккуратной чистовой отделкой, кухней, светом и санузлом.',
     workDone:
-      'Новая электрика по зонам, перепланировка кухни-гостиной, микробетон в прихожей, керамогранит 120×60, скрытые двери.',
+      'Собрали финишные покрытия, световые линии, кухонную зону, санузел, двери и чистовые примыкания.',
     result:
-      'Срок удержан, перерасход по материалам 3.8% из-за замены финишной краски по согласованию.',
-    image:
-      'https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?auto=format&fit=crop&w=1600&q=80',
+      'Получился готовый объект с выразительной кухней, спокойной гостиной и единым визуальным стилем.',
+    image: parmaLivingImage,
     relatedService: 'kapitalnyj-remont',
   },
   {
     id: 2,
-    title: 'Студия, ЖК “Гулливер”',
-    area: '34 м²',
-    duration: '57 дней',
-    workCost: '690 000 ₽',
-    materialsCost: '312 000 ₽',
-    task: 'Подготовить квартиру под аренду: износостойкие решения и быстрый цикл работ.',
+    title: 'ЖК “Ньютон”, Боровая 21',
+    area: 'квартира под ключ',
+    duration: 'капитальный ремонт',
+    workCost: 'по смете',
+    materialsCost: 'по ведомости',
+    task: 'Завершить капитальный ремонт квартиры: чистовая отделка, двери, пол, санузел и финишная электрика.',
     workDone:
-      'Выравнивание стен, кварц-винил, моющаяся краска, локальные светильники, компактная кухня и санузел “под ключ”.',
-    result: 'Сдали на 4 дня раньше графика, владелец запустил аренду через неделю после сдачи.',
-    image:
-      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80',
-    relatedService: 'novostroyka',
+      'Выполнили чистовую отделку комнат и прихожей, установили двери, сантехнику, розетки и свет.',
+    result:
+      'Квартира подготовлена к приёмке: светлые комнаты, аккуратный санузел и готовые инженерные точки.',
+    image: newtonHallImage,
+    relatedService: 'kapitalnyj-remont',
   },
   {
     id: 3,
-    title: 'Ванная комната, ул. Мира',
-    area: '5.8 м²',
-    duration: '23 дня',
-    workCost: '248 000 ₽',
-    materialsCost: '167 000 ₽',
-    task: 'Заменить всё инженерное ядро и сделать светлый санузел с лёгким уходом.',
+    title: 'ЖК “Ньютон”, монтаж электрики',
+    area: 'Боровая 21',
+    duration: 'черновой этап',
+    workCost: 'по объёму точек',
+    materialsCost: 'по ведомости',
+    task: 'Развести электрику под будущие сценарии света, техники и розеточных групп.',
     workDone:
-      'Новая гидроизоляция, разводка воды с ревизией, подвесная инсталляция, керамогранит, подсветка и мебель по размерам.',
-    result: 'Проверка на протечки и нагрузку пройдена, переданы инструкции по обслуживанию узлов.',
-    image:
-      'https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1600&q=80',
-    relatedService: 'remont-vannoj',
+      'Сделали штробы, кабельные трассы, выводы под светильники, розетки и технические зоны.',
+    result: 'Черновая электрика готова к проверке и закрытию следующими этапами ремонта.',
+    image: newtonElectricMainImage,
+    relatedService: 'kapitalnyj-remont',
   },
 ]
 
@@ -159,18 +176,78 @@ export const estimateExamples = [
 
 export const reviews = [
   {
-    author: 'Марина и Олег, ЖК “Арсенал”',
-    text: 'С первого звонка было понятно, кто и за что отвечает. Смета прозрачная, по срокам шли по графику, спорные моменты обсуждали сразу.',
+    author: 'Людмила Непомнящая',
+    text: 'Заказывали перепланировку и ремонт всей квартиры. Команда помогла с материалами, органично собрала интерьер, продумала детскую, столовую и балкон, который стал мини-спортзалом.',
   },
   {
-    author: 'Дмитрий, ул. Революции',
-    text: 'Нужен был ремонт без моего ежедневного контроля. Получал фото и отчёт по этапам, финал приняли без переделок.',
+    author: 'Иван Столяров',
+    text: 'Понравилось, что интерьер сделали минималистичным и удобным для жизни. Двери, шкафы и отделочные материалы вписали спокойно, без визуального шума.',
   },
   {
-    author: 'Анастасия, ЖК “Погода”',
-    text: 'Понравилось, что предложили варианты по материалам в двух бюджетах и честно объяснили, где можно сэкономить.',
+    author: 'Оксана Запольская',
+    text: 'Хотелось красивый и статусный интерьер без ощущения перегруза. В итоге получили гармоничные комнаты, декоративную отделку, лепнину и аккуратное соблюдение сроков.',
+  },
+  {
+    author: 'Марина Романова',
+    text: 'Доверили ремонт просторного коттеджа профессионалам. Все помещения получились в едином стиле, но со своим характером, даже гараж стал уютной частью дома.',
+  },
+  {
+    author: 'Михаил Кутьев',
+    text: 'Выбрали классический стиль, качественные материалы, паркет и двери из массива. Особенно довольны большой кухней и утеплённым балконом, который стал кабинетом.',
+  },
+  {
+    author: 'Сергей Демкин',
+    text: 'Нужен был косметический ремонт старой квартиры через одного подрядчика. Работы сделали слаженно: обновили пол, стены, балкон и дверные проёмы.',
+  },
+  {
+    author: 'Роман Демченко',
+    text: 'Заказывали косметический ремонт офиса. Команда быстро обновила пространство, сделала небольшую перепланировку и добавила больше удобных рабочих зон.',
+  },
+  {
+    author: 'Максим Локмин',
+    text: 'После покупки жилья сделали лёгкий косметический ремонт. По срокам не подвели, материалы не завышали по цене, а квартира стала заметно свежее.',
+  },
+  {
+    author: 'Анастасия Калинина',
+    text: 'Обратились за функциональным интерьером для просторной квартиры. Сделали зонирование, современную отделку и удобную планировку для жизни.',
+  },
+  {
+    author: 'Сергей Дронов',
+    text: 'Заказывали ремонт студии под ключ. Потолки, стены, ламинат и дверные проёмы сделали аккуратно, без необходимости контролировать несколько бригад.',
   },
 ]
+
+export const aboutPage = {
+  heroTitle: 'О компании BRAVO REMONT',
+  heroLead:
+    'Помогаем владельцам квартир в Перми пройти ремонт без лишней потери времени, сил и бюджета: от сметы и материалов до контроля этапов на объекте.',
+  heroImage: parmaKitchenImage,
+  principles: [
+    {
+      title: 'Работаем по согласованной смете',
+      text: 'Стоимость разбирается по работам и материалам до старта. Оплата идёт поэтапно, а спорные изменения согласуются до выполнения.',
+    },
+    {
+      title: 'Берём на себя подбор материалов',
+      text: 'Подбираем решения среди проверенных российских и зарубежных производителей, чтобы отделка выглядела хорошо и выдерживала ежедневную нагрузку.',
+    },
+    {
+      title: 'Контролируем каждый этап',
+      text: 'На объекте работает мастер-прораб: следит за графиком, технологией, последовательностью операций и качеством скрытых работ.',
+    },
+    {
+      title: 'Обновляем навыки команды',
+      text: 'Мастера регулярно разбирают новые технологии и материалы, поэтому ремонт не держится на случайном опыте одной бригады.',
+    },
+  ],
+  process: [
+    'Фиксируем задачи, состояние квартиры и ограничения дома.',
+    'Собираем смету с понятной структурой работ, материалов и этапов оплаты.',
+    'Запускаем ремонт по графику: демонтаж, черновой цикл, инженерия и чистовая отделка.',
+    'Проверяем результат по чек-листу и передаём объект с понятными рекомендациями.',
+  ],
+  partners: ['ООО «МС Потрясающая Компания»'],
+}
 
 export const faqItems = [
   {
@@ -200,6 +277,13 @@ export const servicePages = {
     heroTitle: 'Ремонт новостройки под ключ в Перми',
     heroLead:
       'Запускаем квартиру с нуля: от инженерии до чистовой отделки и итоговой сдачи с чек-листом.',
+    heroImage: parmaLivingImage,
+    aboutImages: [newtonElectricRoomImage, parmaKitchenImage, newtonRoomImage],
+    exampleGallery: [
+      { title: 'Гостиная после отделки', image: parmaLivingImage },
+      { title: 'Кухонная зона', image: parmaKitchenAltImage },
+      { title: 'Чистовая комната', image: newtonRoomImage },
+    ],
     value: [
       'Единый график работ и поставок',
       'Контроль каждой зоны по чек-листам',
@@ -216,6 +300,13 @@ export const servicePages = {
     heroTitle: 'Ремонт вторички под ключ в Перми',
     heroLead:
       'Делаем вторичный фонд предсказуемым: аккуратный демонтаж, новая инженерия, чистовой интерьер.',
+    heroImage: newtonDemoRoomImage,
+    aboutImages: [newtonDemoOpeningImage, newtonElectricCorridorImage, newtonHallImage],
+    exampleGallery: [
+      { title: 'Демонтаж проёмов', image: newtonDemoOpeningImage },
+      { title: 'Черновая электрика', image: newtonElectricCorridorImage },
+      { title: 'Финишная прихожая', image: newtonHallImage },
+    ],
     value: ['Безопасный демонтаж и вывоз', 'Замена слабых инженерных узлов', 'Поэтапный фотоотчёт'],
     whatIncluded: [
       'Обследование и дефектовка',
@@ -228,6 +319,13 @@ export const servicePages = {
     heroTitle: 'Капитальный ремонт квартиры',
     heroLead:
       'Полный перезапуск квартиры с понятной структурой бюджета и контролем сроков на каждом этапе.',
+    heroImage: parmaLivingImage,
+    aboutImages: [newtonDemoRoomImage, newtonElectricMainImage, parmaBathImage],
+    exampleGallery: [
+      { title: 'ЖК Парма: гостиная', image: parmaLivingImage },
+      { title: 'ЖК Парма: кухня', image: parmaKitchenImage },
+      { title: 'ЖК Ньютон: санузел', image: newtonBathWideImage },
+    ],
     value: ['Чёткая этапность', 'Ответственный прораб', 'Сдача по договору и гарантия'],
     whatIncluded: [
       'Проектирование и план работ',
@@ -251,6 +349,13 @@ export const servicePages = {
     heroTitle: 'Ремонт ванной комнаты под ключ',
     heroLead:
       'Работаем с помещением, где важна точность: гидроизоляция, сантехника и чистый монтаж плитки.',
+    heroImage: parmaBathImage,
+    aboutImages: [newtonBathWideImage, newtonBathImage, parmaBathImage],
+    exampleGallery: [
+      { title: 'Санузел с акцентной плиткой', image: parmaBathImage },
+      { title: 'Готовая ванная', image: newtonBathImage },
+      { title: 'Финишная зона раковины', image: newtonBathWideImage },
+    ],
     value: ['Проверка узлов до закрытия', 'Точная геометрия плитки', 'Гарантия на скрытые работы'],
     whatIncluded: [
       'Демонтаж и подготовка',
@@ -299,6 +404,13 @@ export const servicePages = {
     heroTitle: 'Ремонт 2-комнатной квартиры',
     heroLead:
       'Разводим задачи по комнатам, чтобы ремонт шёл предсказуемо: от демонтажа до чистовой сдачи.',
+    heroImage: parmaLivingImage,
+    aboutImages: [parmaBedroomImage, parmaKitchenAltImage, parmaBalconyImage],
+    exampleGallery: [
+      { title: 'Гостиная с диванной зоной', image: parmaLivingImage },
+      { title: 'Спальня после ремонта', image: parmaBedroomImage },
+      { title: 'Лоджия и световые линии', image: parmaBalconyImage },
+    ],
     value: ['Понятная очередность', 'Контроль поставок', 'Фотоотчёт по этапам'],
     whatIncluded: [
       'Дефектовка и демонтаж',
@@ -1041,3 +1153,29 @@ Object.entries(donorWorkData).forEach(([slug, data]) => {
     ],
   }
 })
+
+workPages.elektrika = {
+  ...workPages.elektrika,
+  title: 'Электромонтажные работы',
+  image: newtonElectricMainImage,
+  gallery: [
+    newtonElectricMainImage,
+    newtonElectricRoomImage,
+    newtonElectricWallImage,
+    newtonElectricCorridorImage,
+  ],
+  description: [
+    'Реальный объект: ЖК “Ньютон”, Боровая 21. На этапе электромонтажа развели кабельные трассы, выводы под свет, розетки и технические точки.',
+    'Такие фото показывают скрытый этап до закрытия отделкой: клиент видит, где проходят линии и как подготовлены зоны под дальнейшие работы.',
+  ],
+}
+
+workPages.demontazh = {
+  ...workPages.demontazh,
+  image: newtonDemoMainImage,
+  gallery: [newtonDemoMainImage, newtonDemoOpeningImage, newtonDemoRoomImage, newtonDemoWallsImage],
+  description: [
+    'Реальный объект: ЖК “Ньютон”, Боровая 21. Демонтаж перегородок и проёмов подготовил квартиру к следующему черновому этапу.',
+    'После разбора конструкций становится понятен фронт работ: геометрия помещений, состояние оснований и места будущих инженерных трасс.',
+  ],
+}

@@ -66,7 +66,7 @@ const workMenu = [
 
 const navItems = [
   { label: 'Портфолио', href: '/#cases' },
-  { label: 'О компании', href: '/#faq' },
+  { label: 'О компании', href: '/o-kompanii' },
   { label: 'Контакты', href: '/#lead-end' },
 ]
 
@@ -91,13 +91,13 @@ function openDesktopMenu(menu) {
   activeDesktopMenu.value = menu
 }
 
-function scheduleDesktopMenuClose() {
+function scheduleDesktopMenuClose(delay = 3000) {
   if (desktopMenuCloseTimer) {
     clearTimeout(desktopMenuCloseTimer)
   }
   desktopMenuCloseTimer = window.setTimeout(() => {
     activeDesktopMenu.value = ''
-  }, 3000)
+  }, delay)
 }
 
 watch(
@@ -141,9 +141,9 @@ watch(
           class="nav-dropdown"
           :class="{ 'is-open': activeDesktopMenu === 'works' }"
           @mouseenter="openDesktopMenu('works')"
-          @mouseleave="scheduleDesktopMenuClose"
+          @mouseleave="scheduleDesktopMenuClose(750)"
           @focusin="openDesktopMenu('works')"
-          @focusout="scheduleDesktopMenuClose"
+          @focusout="scheduleDesktopMenuClose(750)"
         >
           <a href="/#types">Виды работ</a>
           <div class="mega-menu mega-menu-works">

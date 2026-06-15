@@ -38,12 +38,14 @@ const serviceAboutItems = computed(() => [
     image:
       route.params.slug === 'kosmeticheskij-remont'
         ? cosmeticApartmentImage
-        : 'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=80',
+        : page.value?.aboutImages?.[0] ||
+          'https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=1200&q=80',
   },
   {
     title: 'Что входит в работу',
     paragraphs: [(page.value?.whatIncluded || []).join(', ') + '.'],
     image:
+      page.value?.aboutImages?.[1] ||
       'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80',
   },
   {
@@ -52,27 +54,31 @@ const serviceAboutItems = computed(() => [
       'Перед стартом фиксируем смету, последовательность работ и точки согласования. Клиент видит, что происходит на объекте, без ежедневного ручного контроля.',
     ],
     image:
+      page.value?.aboutImages?.[2] ||
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
   },
 ])
 
-const exampleGallery = [
-  {
-    title: 'Спокойная гостиная',
-    image:
-      'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80',
-  },
-  {
-    title: 'Светлая кухня',
-    image:
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=80',
-  },
-  {
-    title: 'Компактная спальня',
-    image:
-      'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80',
-  },
-]
+const exampleGallery = computed(
+  () =>
+    page.value?.exampleGallery || [
+      {
+        title: 'Спокойная гостиная',
+        image:
+          'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80',
+      },
+      {
+        title: 'Светлая кухня',
+        image:
+          'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=80',
+      },
+      {
+        title: 'Компактная спальня',
+        image:
+          'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80',
+      },
+    ],
+)
 
 const serviceAdvantages = computed(() => [
   ...(page.value?.value || []),
@@ -99,7 +105,10 @@ const serviceAdvantages = computed(() => [
         <div class="hero-image-wrap">
           <img
             class="hero-image"
-            src="https://images.unsplash.com/photo-1630699144867-37acec97df5a?auto=format&fit=crop&w=1600&q=80"
+            :src="
+              page.heroImage ||
+              'https://images.unsplash.com/photo-1630699144867-37acec97df5a?auto=format&fit=crop&w=1600&q=80'
+            "
             alt="Пример реализованной отделки"
           />
         </div>
