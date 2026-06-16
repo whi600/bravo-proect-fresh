@@ -123,6 +123,14 @@ export const portfolioCases = [
     result:
       'Получился готовый объект с выразительной кухней, спокойной гостиной и единым визуальным стилем.',
     image: parmaLivingImage,
+    gallery: [
+      parmaLivingImage,
+      parmaKitchenImage,
+      parmaKitchenAltImage,
+      parmaBedroomImage,
+      parmaBalconyImage,
+      parmaBathImage,
+    ],
     relatedService: 'kapitalnyj-remont',
   },
   {
@@ -138,6 +146,7 @@ export const portfolioCases = [
     result:
       'Квартира подготовлена к приёмке: светлые комнаты, аккуратный санузел и готовые инженерные точки.',
     image: newtonHallImage,
+    gallery: [newtonHallImage, newtonRoomImage, newtonBathWideImage, newtonBathImage],
     relatedService: 'kapitalnyj-remont',
   },
   {
@@ -152,6 +161,12 @@ export const portfolioCases = [
       'Сделали штробы, кабельные трассы, выводы под светильники, розетки и технические зоны.',
     result: 'Черновая электрика готова к проверке и закрытию следующими этапами ремонта.',
     image: newtonElectricMainImage,
+    gallery: [
+      newtonElectricMainImage,
+      newtonElectricRoomImage,
+      newtonElectricWallImage,
+      newtonElectricCorridorImage,
+    ],
     relatedService: 'kapitalnyj-remont',
   },
 ]

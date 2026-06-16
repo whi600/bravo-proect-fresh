@@ -7,7 +7,6 @@ import repairFormatCosmetic from '../assets/repair-format-cosmetic.png'
 import repairFormatExclusive from '../assets/repair-format-exclusive.png'
 import {
   company,
-  estimateExamples,
   faqItems,
   portfolioCases,
   processSteps,
@@ -17,15 +16,48 @@ import {
 
 const quizSent = ref(false)
 const activeProcessStep = ref(0)
-const quiz = reactive({
-  objectType: 'novostroyka',
+const selectedCase = ref(null)
+const selectedCaseImageIndex = ref(0)
+const calc = reactive({
   area: 52,
-  repairType: 'kapitalnyj-remont',
-  needDemolition: 'yes',
-  hasDesign: 'no',
-  startWhen: '1-2-mesyaca',
+  rooms: 2,
+  ceiling: true,
+  ceilingOption: 0,
+  wall: true,
+  wallOption: 0,
+  floor: true,
+  floorOption: 0,
+  newElectric: true,
+  replaceElectric: false,
+  demolition: true,
+  bathroom: true,
   phone: '',
 })
+
+const calcOptions = {
+  ceiling: [
+    { label: 'натяжной', price: 550 },
+    { label: 'подвесной из гипсокартона', price: 1750 },
+    { label: 'под покраску', price: 1200 },
+  ],
+  wall: [
+    { label: 'капитальный ремонт под обои', price: 840 },
+    { label: 'косметический ремонт под обои', price: 570 },
+    { label: 'под покраску', price: 1050 },
+  ],
+  floor: [
+    { label: 'капитальный ремонт, ламинат', price: 1090 },
+    { label: 'косметический ремонт, линолеум', price: 470 },
+    { label: 'устройство деревянного, ламинат', price: 700 },
+  ],
+}
+
+const calcFixedOptions = [
+  { key: 'newElectric', label: 'Полная замена электропроводки', price: 2293, mode: 'area' },
+  { key: 'replaceElectric', label: 'Замена выключателей, розеток', price: 808, mode: 'area' },
+  { key: 'demolition', label: 'Демонтажные работы', price: 485, mode: 'area' },
+  { key: 'bathroom', label: 'Ремонт ванной, санузла', price: 80000, mode: 'fixed' },
+]
 
 const repairPriceTypes = [
   {
@@ -75,32 +107,49 @@ const repairPriceTypes = [
   },
 ]
 
-const baseRates = {
-  novostroyka: 12500,
-  vtorichka: 14000,
-  dom: 15000,
-  office: 13200,
-  'kapitalnyj-remont': 16500,
-  'kosmeticheskij-remont': 8500,
-  'dizajnerskij-remont': 19500,
-}
-
-const estimateRange = computed(() => {
-  const objectRate = baseRates[quiz.objectType] || 12000
-  const repairRate = baseRates[quiz.repairType] || 13000
-  let coefficient = 1
-
-  if (quiz.needDemolition === 'yes') coefficient += 0.08
-  if (quiz.hasDesign === 'no') coefficient += 0.04
-
-  const middle = Math.round(((objectRate + repairRate) / 2) * quiz.area * coefficient)
-  return {
-    low: Math.round(middle * 0.92),
-    high: Math.round(middle * 1.14),
-  }
-})
-
 const currentProcessStep = computed(() => processSteps[activeProcessStep.value] || processSteps[0])
+const selectedCaseImages = computed(() => selectedCase.value?.gallery || [])
+const selectedCaseImage = computed(() => selectedCaseImages.value[selectedCaseImageIndex.value])
+const visibleReviews = computed(() => reviews.slice(0, 3))
+const hiddenReviews = computed(() => reviews.slice(3))
+const calcRows = computed(() => {
+  const area = Number(calc.area) || 0
+  const rooms = Number(calc.rooms) || 0
+  const rows = []
+
+  if (!area || !rooms) return rows
+
+  if (calc.ceiling) {
+    const option = calcOptions.ceiling[calc.ceilingOption]
+    rows.push({ label: `Потолок: ${option.label}`, total: area * option.price })
+  }
+
+  if (calc.wall) {
+    const option = calcOptions.wall[calc.wallOption]
+    const wallMultiplier = rooms === 1 ? 2.4 : 1.5
+    rows.push({
+      label: `Стены: ${option.label}`,
+      total: area * rooms * wallMultiplier * option.price,
+    })
+  }
+
+  if (calc.floor) {
+    const option = calcOptions.floor[calc.floorOption]
+    rows.push({ label: `Полы: ${option.label}`, total: area * option.price })
+  }
+
+  for (const item of calcFixedOptions) {
+    if (calc[item.key]) {
+      rows.push({
+        label: item.label,
+        total: item.mode === 'fixed' ? item.price : area * item.price,
+      })
+    }
+  }
+
+  return rows
+})
+const calcTotal = computed(() => calcRows.value.reduce((sum, row) => sum + row.total, 0))
 
 function formatRub(value) {
   return new Intl.NumberFormat('ru-RU').format(value)
@@ -108,6 +157,25 @@ function formatRub(value) {
 
 function submitQuiz() {
   quizSent.value = true
+}
+
+function openCase(item) {
+  selectedCase.value = item
+  selectedCaseImageIndex.value = 0
+}
+
+function closeCase() {
+  selectedCase.value = null
+  selectedCaseImageIndex.value = 0
+}
+
+function showCaseImage(index) {
+  selectedCaseImageIndex.value = index
+}
+
+function moveCaseImage(direction) {
+  const total = selectedCaseImages.value.length
+  selectedCaseImageIndex.value = (selectedCaseImageIndex.value + direction + total) % total
 }
 </script>
 
@@ -151,76 +219,138 @@ function submitQuiz() {
       <div class="container container-wide quiz-grid">
         <div class="quiz-copy">
           <p class="eyebrow">Расчёт стоимости</p>
-          <h2>Предварительный расчёт ремонта</h2>
+          <h2>Калькулятор расчёта стоимости ремонта</h2>
           <p>
-            Заполните параметры объекта, и мы свяжемся с расчётом и рекомендациями, где можно
-            сэкономить без потери качества.
+            Модель расчёта перенесена с донорского сайта: выберите площадь, количество комнат и
+            нужные виды работ. Итог считается по тем же ставкам.
           </p>
           <div class="price-preview">
-            <p>Ориентир по вашему вводу:</p>
-            <strong
-              >{{ formatRub(estimateRange.low) }} — {{ formatRub(estimateRange.high) }} ₽</strong
-            >
+            <p>{{ calcTotal ? 'Предварительная стоимость ремонта' : 'Выберите параметры' }}</p>
+            <strong>{{ calcTotal ? `${formatRub(calcTotal)} ₽` : 'Введите размеры' }}</strong>
           </div>
         </div>
 
-        <form class="card quiz-form" @submit.prevent="submitQuiz">
-          <label>
-            <span>Тип объекта</span>
-            <select v-model="quiz.objectType">
-              <option value="novostroyka">Новостройка</option>
-              <option value="vtorichka">Вторичка</option>
-              <option value="dom">Частный дом</option>
-              <option value="office">Офис</option>
-            </select>
-          </label>
+        <form class="card quiz-form repair-calculator" @submit.prevent="submitQuiz">
+          <div class="calc-top-row">
+            <label>
+              <span>Площадь квартиры, м²</span>
+              <input v-model.number="calc.area" type="number" min="1" step="1" />
+            </label>
 
-          <label>
-            <span>Площадь (м²)</span>
-            <input v-model.number="quiz.area" type="range" min="20" max="140" step="1" />
-            <small>{{ quiz.area }} м²</small>
-          </label>
+            <label>
+              <span>Число комнат</span>
+              <div class="calc-room-control">
+                <button type="button" @click="calc.rooms = Math.max(1, Number(calc.rooms) - 1)">
+                  ‹
+                </button>
+                <input v-model.number="calc.rooms" type="number" min="1" max="99" />
+                <button type="button" @click="calc.rooms = Math.min(99, Number(calc.rooms) + 1)">
+                  ›
+                </button>
+              </div>
+            </label>
+          </div>
 
-          <label>
-            <span>Тип ремонта</span>
-            <select v-model="quiz.repairType">
-              <option value="kosmeticheskij-remont">Косметический</option>
-              <option value="kapitalnyj-remont">Капитальный</option>
-              <option value="dizajnerskij-remont">Дизайнерский</option>
-            </select>
-          </label>
+          <div class="calc-options">
+            <div class="calc-option-row">
+              <label class="calc-check">
+                <input v-model="calc.ceiling" type="checkbox" />
+                <span>Потолок</span>
+              </label>
+              <select v-model.number="calc.ceilingOption" :disabled="!calc.ceiling">
+                <option
+                  v-for="(option, index) in calcOptions.ceiling"
+                  :key="option.label"
+                  :value="index"
+                >
+                  {{ option.label }}
+                </option>
+              </select>
+              <strong
+                >{{
+                  calc.ceiling
+                    ? formatRub(calcRows.find((row) => row.label.startsWith('Потолок'))?.total || 0)
+                    : '—'
+                }}
+                ₽</strong
+              >
+            </div>
 
-          <label>
-            <span>Нужен демонтаж</span>
-            <select v-model="quiz.needDemolition">
-              <option value="yes">Да</option>
-              <option value="no">Нет</option>
-            </select>
-          </label>
+            <div class="calc-option-row">
+              <label class="calc-check">
+                <input v-model="calc.wall" type="checkbox" />
+                <span>Стены</span>
+              </label>
+              <select v-model.number="calc.wallOption" :disabled="!calc.wall">
+                <option
+                  v-for="(option, index) in calcOptions.wall"
+                  :key="option.label"
+                  :value="index"
+                >
+                  {{ option.label }}
+                </option>
+              </select>
+              <strong
+                >{{
+                  calc.wall
+                    ? formatRub(calcRows.find((row) => row.label.startsWith('Стены'))?.total || 0)
+                    : '—'
+                }}
+                ₽</strong
+              >
+            </div>
 
-          <label>
-            <span>Есть дизайн-проект</span>
-            <select v-model="quiz.hasDesign">
-              <option value="yes">Да</option>
-              <option value="no">Нет</option>
-            </select>
-          </label>
+            <div class="calc-option-row">
+              <label class="calc-check">
+                <input v-model="calc.floor" type="checkbox" />
+                <span>Полы</span>
+              </label>
+              <select v-model.number="calc.floorOption" :disabled="!calc.floor">
+                <option
+                  v-for="(option, index) in calcOptions.floor"
+                  :key="option.label"
+                  :value="index"
+                >
+                  {{ option.label }}
+                </option>
+              </select>
+              <strong
+                >{{
+                  calc.floor
+                    ? formatRub(calcRows.find((row) => row.label.startsWith('Полы'))?.total || 0)
+                    : '—'
+                }}
+                ₽</strong
+              >
+            </div>
 
-          <label>
-            <span>Когда хотите старт</span>
-            <select v-model="quiz.startWhen">
-              <option value="srazu">Сразу</option>
-              <option value="1-2-mesyaca">Через 1–2 месяца</option>
-              <option value="pozhe">Позже</option>
-            </select>
-          </label>
+            <label
+              v-for="item in calcFixedOptions"
+              :key="item.key"
+              class="calc-option-row calc-option-simple"
+            >
+              <span class="calc-check">
+                <input v-model="calc[item.key]" type="checkbox" />
+                <span>{{ item.label }}</span>
+              </span>
+              <span>{{ item.mode === 'fixed' ? 'фиксированно' : `${item.price} ₽/м²` }}</span>
+              <strong
+                >{{
+                  calc[item.key]
+                    ? formatRub(calcRows.find((row) => row.label === item.label)?.total || 0)
+                    : '—'
+                }}
+                ₽</strong
+              >
+            </label>
+          </div>
 
           <label>
             <span>Телефон для расчёта</span>
-            <input v-model="quiz.phone" type="tel" placeholder="+7 (___) ___-__-__" required />
+            <input v-model="calc.phone" type="tel" placeholder="+7 (___) ___-__-__" required />
           </label>
 
-          <button class="btn btn-primary" type="submit">Получить предварительную смету</button>
+          <button class="btn btn-primary" type="submit">Оставить заявку</button>
           <p v-if="quizSent" class="form-success">
             Принято. Мы подготовим расчёт и свяжемся с вами.
           </p>
@@ -361,42 +491,45 @@ function submitQuiz() {
         </div>
         <div class="cases-grid">
           <article v-for="item in portfolioCases" :key="item.id" class="card case-card">
-            <img :src="item.image" :alt="item.title" />
-            <div>
+            <button class="case-media" type="button" @click="openCase(item)">
+              <img :src="item.image" :alt="item.title" />
+            </button>
+            <div class="case-content">
               <h3>{{ item.title }}</h3>
               <p class="case-meta">{{ item.area }} • {{ item.duration }}</p>
               <p><strong>Задача:</strong> {{ item.task }}</p>
               <p><strong>Сделано:</strong> {{ item.workDone }}</p>
-              <p><strong>Стоимость работ:</strong> {{ item.workCost }}</p>
-              <p><strong>Материалы:</strong> {{ item.materialsCost }}</p>
               <p><strong>Итог:</strong> {{ item.result }}</p>
+              <button class="btn btn-secondary case-more" type="button" @click="openCase(item)">
+                Подробнее
+              </button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="estimate" class="section section-soft">
+    <section id="reviews" class="section reviews-band">
       <div class="container container-wide">
-        <div class="section-head">
-          <p class="eyebrow">Примеры смет</p>
-          <h2>Понятная структура цены без “сюрпризов”</h2>
+        <div class="section-head reviews-band-head">
+          <p class="eyebrow">Отзывы</p>
+          <h2>Клиенты отмечают не только результат, но и спокойный процесс</h2>
         </div>
-        <div class="estimates-grid">
-          <article v-for="example in estimateExamples" :key="example.object" class="card">
-            <p class="type-price">{{ example.budget }}</p>
-            <h3>{{ example.object }}</h3>
-            <p>{{ example.includes }}</p>
+        <div class="reviews-band-grid">
+          <article v-for="review in visibleReviews" :key="review.author" class="review-card">
+            <p>«{{ review.text }}»</p>
+            <strong>{{ review.author }}</strong>
           </article>
         </div>
-        <div class="price-note card">
-          <h3>Почему смета может измениться</h3>
-          <p>
-            Обычно корректировки происходят из-за скрытых дефектов, изменения материалов клиентом
-            или дополнительных работ после вскрытия узлов. Любое изменение оформляем отдельно и
-            согласуем до выполнения.
-          </p>
-        </div>
+        <details v-if="hiddenReviews.length" class="reviews-disclosure reviews-band-more">
+          <summary>Показать ещё отзывы</summary>
+          <div class="reviews-disclosure-grid">
+            <article v-for="review in hiddenReviews" :key="review.author" class="review-card">
+              <p>«{{ review.text }}»</p>
+              <strong>{{ review.author }}</strong>
+            </article>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -406,24 +539,11 @@ function submitQuiz() {
           <p class="eyebrow">FAQ</p>
           <h2>Частые вопросы перед стартом ремонта</h2>
         </div>
-        <div class="faq-reviews-grid">
-          <div class="faq-list">
-            <details v-for="item in faqItems" :key="item.question" class="card faq-item">
-              <summary>{{ item.question }}</summary>
-              <p>{{ item.answer }}</p>
-            </details>
-          </div>
-
-          <aside class="faq-reviews">
-            <p class="eyebrow">Отзывы</p>
-            <h3>Что говорят клиенты после сдачи объекта</h3>
-            <div class="faq-reviews-list">
-              <article v-for="review in reviews" :key="review.author" class="card review-card">
-                <p>«{{ review.text }}»</p>
-                <strong>{{ review.author }}</strong>
-              </article>
-            </div>
-          </aside>
+        <div class="faq-list faq-list-full">
+          <details v-for="item in faqItems" :key="item.question" class="card faq-item">
+            <summary>{{ item.question }}</summary>
+            <p>{{ item.answer }}</p>
+          </details>
         </div>
       </div>
     </section>
@@ -449,5 +569,54 @@ function submitQuiz() {
         </aside>
       </div>
     </section>
+
+    <div v-if="selectedCase" class="case-modal" role="dialog" aria-modal="true">
+      <button class="case-modal-backdrop" type="button" aria-label="Закрыть" @click="closeCase" />
+      <div class="case-modal-panel">
+        <div class="case-modal-head">
+          <div>
+            <p class="eyebrow">Фото объекта</p>
+            <h2>{{ selectedCase.title }}</h2>
+          </div>
+          <button class="case-modal-close" type="button" aria-label="Закрыть" @click="closeCase">
+            ×
+          </button>
+        </div>
+
+        <div class="case-modal-gallery">
+          <button
+            v-if="selectedCaseImages.length > 1"
+            class="case-gallery-control case-gallery-prev"
+            type="button"
+            aria-label="Предыдущее фото"
+            @click="moveCaseImage(-1)"
+          >
+            ‹
+          </button>
+          <img :src="selectedCaseImage" :alt="selectedCase.title" />
+          <button
+            v-if="selectedCaseImages.length > 1"
+            class="case-gallery-control case-gallery-next"
+            type="button"
+            aria-label="Следующее фото"
+            @click="moveCaseImage(1)"
+          >
+            ›
+          </button>
+        </div>
+
+        <div class="case-thumbs">
+          <button
+            v-for="(image, index) in selectedCaseImages"
+            :key="image"
+            type="button"
+            :class="{ 'is-active': selectedCaseImageIndex === index }"
+            @click="showCaseImage(index)"
+          >
+            <img :src="image" :alt="`${selectedCase.title}: фото ${index + 1}`" />
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

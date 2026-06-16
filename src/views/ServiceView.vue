@@ -86,6 +86,8 @@ const serviceAdvantages = computed(() => [
   'Прораб ведёт объект и отвечает за ежедневную координацию',
   'Скрытые работы фиксируем до закрытия финишной отделкой',
 ])
+const visibleReviews = computed(() => reviews.slice(0, 3))
+const hiddenReviews = computed(() => reviews.slice(3))
 </script>
 
 <template>
@@ -165,11 +167,20 @@ const serviceAdvantages = computed(() => [
           <h2>Что клиенты отмечают после сдачи объекта</h2>
         </div>
         <div class="service-reviews-grid">
-          <article v-for="review in reviews" :key="review.author" class="card review-card">
+          <article v-for="review in visibleReviews" :key="review.author" class="card review-card">
             <p>«{{ review.text }}»</p>
             <strong>{{ review.author }}</strong>
           </article>
         </div>
+        <details v-if="hiddenReviews.length" class="reviews-disclosure card">
+          <summary>Показать ещё отзывы</summary>
+          <div class="reviews-disclosure-grid">
+            <article v-for="review in hiddenReviews" :key="review.author" class="review-card">
+              <p>«{{ review.text }}»</p>
+              <strong>{{ review.author }}</strong>
+            </article>
+          </div>
+        </details>
       </div>
     </section>
 
