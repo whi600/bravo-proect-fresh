@@ -166,7 +166,16 @@ watch(
       </nav>
 
       <div class="header-actions">
-        <a class="header-phone" href="tel:+73422479957">{{ company.phone }}</a>
+        <div class="header-phones">
+          <a
+            v-for="phone in company.phones"
+            :key="phone.href"
+            class="header-phone"
+            :href="phone.href"
+          >
+            {{ phone.label }}
+          </a>
+        </div>
         <a class="btn btn-primary" :href="isHome ? '#quiz' : '/#quiz'">Рассчитать стоимость</a>
       </div>
 

@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 import SiteHeader from './components/SiteHeader.vue'
 import SiteFooter from './components/SiteFooter.vue'
+import { company } from './data/siteData'
 </script>
 
 <template>
@@ -11,6 +12,6 @@ import SiteFooter from './components/SiteFooter.vue'
       <RouterView />
     </main>
     <SiteFooter />
-    <a class="mobile-sticky-cta" href="tel:+73422479957">Позвонить и обсудить ремонт</a>
+    <a class="mobile-sticky-cta" :href="company.phones[0].href">Позвонить и обсудить ремонт</a>
   </div>
 </template>

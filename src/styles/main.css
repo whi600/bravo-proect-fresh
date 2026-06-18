@@ -300,9 +300,16 @@ a {
   flex-shrink: 0;
 }
 
+.header-phones {
+  display: grid;
+  gap: 2px;
+  justify-items: end;
+}
+
 .header-phone {
   font-weight: 600;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .mobile-menu-toggle,
@@ -561,6 +568,11 @@ a {
   min-height: 44px;
   text-align: center;
   line-height: 1.2;
+}
+
+.btn:disabled {
+  cursor: wait;
+  opacity: 0.68;
 }
 
 .btn-primary {
@@ -2553,6 +2565,12 @@ textarea {
   font-weight: 600;
 }
 
+.form-error {
+  margin-top: 8px;
+  color: #8f2f24;
+  font-weight: 600;
+}
+
 .contact-card {
   align-self: start;
 }
@@ -2722,7 +2740,7 @@ textarea {
     margin-top: 0;
   }
 
-  .header-phone {
+  .header-phones {
     display: none;
   }
 

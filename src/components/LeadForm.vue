@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import { submitLead } from '../utils/leadSubmit'
 
 const props = defineProps({
   title: {
@@ -21,14 +22,40 @@ const props = defineProps({
 })
 
 const sent = ref(false)
+const sending = ref(false)
+const error = ref(false)
 const form = reactive({
   name: '',
   phone: '',
   comment: '',
 })
 
-function onSubmit() {
-  sent.value = true
+async function onSubmit() {
+  if (sending.value) return
+
+  sending.value = true
+  sent.value = false
+  error.value = false
+
+  try {
+    await submitLead({
+      subject: `Заявка с сайта: ${props.title}`,
+      Форма: props.title,
+      Имя: form.name,
+      Телефон: form.phone,
+      Комментарий: form.comment,
+      Страница: window.location.href,
+    })
+
+    sent.value = true
+    form.name = ''
+    form.phone = ''
+    form.comment = ''
+  } catch {
+    error.value = true
+  } finally {
+    sending.value = false
+  }
 }
 </script>
 
@@ -57,12 +84,17 @@ function onSubmit() {
         />
       </label>
 
-      <button class="btn btn-primary" type="submit">{{ props.buttonLabel }}</button>
+      <button class="btn btn-primary" type="submit" :disabled="sending">
+        {{ sending ? 'Отправляем...' : props.buttonLabel }}
+      </button>
       <small>Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</small>
     </form>
 
     <p v-if="sent" class="form-success">
       Заявка отправлена. Свяжемся с вами в течение 20 минут в рабочее время.
+    </p>
+    <p v-if="error" class="form-error">
+      Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз.
     </p>
   </section>
 </template>

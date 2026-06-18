@@ -20,7 +20,8 @@ import parmaLivingImage from '../assets/cases/parma-living.webp'
 export const company = {
   name: 'BRAVO REMONT',
   city: 'Пермь',
-  phone: '+7 (342) 247-99-57',
+  phone: '+7 (904) 848-77-14',
+  phones: [{ label: '+7 (904) 848-77-14', href: 'tel:+79048487714' }],
   address: 'Пермь, ул. Ленина, 64, офис 312',
   workHours: 'Пн–Сб: 09:00–20:00',
 }

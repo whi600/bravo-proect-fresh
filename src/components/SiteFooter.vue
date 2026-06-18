@@ -12,8 +12,8 @@ import { company } from '../data/siteData'
 
       <div>
         <p class="footer-title">Контакты</p>
-        <p>
-          <a href="tel:+73422479957">{{ company.phone }}</a>
+        <p v-for="phone in company.phones" :key="phone.href">
+          <a :href="phone.href">{{ phone.label }}</a>
         </p>
         <p>{{ company.address }}</p>
         <p>{{ company.workHours }}</p>

@@ -5,6 +5,7 @@ import LeadForm from '../components/LeadForm.vue'
 import repairFormatCapital from '../assets/repair-format-capital.png'
 import repairFormatCosmetic from '../assets/repair-format-cosmetic.png'
 import repairFormatExclusive from '../assets/repair-format-exclusive.png'
+import { submitLead } from '../utils/leadSubmit'
 import {
   company,
   faqItems,
@@ -15,6 +16,8 @@ import {
 } from '../data/siteData'
 
 const quizSent = ref(false)
+const quizSending = ref(false)
+const quizError = ref(false)
 const activeProcessStep = ref(0)
 const selectedCase = ref(null)
 const selectedCaseImageIndex = ref(0)
@@ -155,8 +158,32 @@ function formatRub(value) {
   return new Intl.NumberFormat('ru-RU').format(value)
 }
 
-function submitQuiz() {
-  quizSent.value = true
+async function submitQuiz() {
+  if (quizSending.value) return
+
+  quizSending.value = true
+  quizSent.value = false
+  quizError.value = false
+
+  try {
+    await submitLead({
+      subject: 'Заявка из калькулятора ремонта',
+      Форма: 'Калькулятор расчёта стоимости ремонта',
+      Телефон: calc.phone,
+      Площадь: `${calc.area} м²`,
+      Комнаты: calc.rooms,
+      Работы: calcRows.value.map((row) => `${row.label}: ${formatRub(row.total)} ₽`),
+      'Предварительная стоимость': `${formatRub(calcTotal.value)} ₽`,
+      Страница: window.location.href,
+    })
+
+    quizSent.value = true
+    calc.phone = ''
+  } catch {
+    quizError.value = true
+  } finally {
+    quizSending.value = false
+  }
 }
 
 function openCase(item) {
@@ -350,9 +377,14 @@ function moveCaseImage(direction) {
             <input v-model="calc.phone" type="tel" placeholder="+7 (___) ___-__-__" required />
           </label>
 
-          <button class="btn btn-primary" type="submit">Оставить заявку</button>
+          <button class="btn btn-primary" type="submit" :disabled="quizSending">
+            {{ quizSending ? 'Отправляем...' : 'Оставить заявку' }}
+          </button>
           <p v-if="quizSent" class="form-success">
             Принято. Мы подготовим расчёт и свяжемся с вами.
+          </p>
+          <p v-if="quizError" class="form-error">
+            Не удалось отправить заявку. Позвоните нам или попробуйте ещё раз.
           </p>
         </form>
       </div>
@@ -558,8 +590,10 @@ function moveCaseImage(direction) {
 
         <aside class="contact-card card">
           <h3>Контакты</h3>
-          <p>
-            <strong>{{ company.phone }}</strong>
+          <p v-for="phone in company.phones" :key="phone.href">
+            <a :href="phone.href">
+              <strong>{{ phone.label }}</strong>
+            </a>
           </p>
           <p>{{ company.address }}</p>
           <p>{{ company.workHours }}</p>
