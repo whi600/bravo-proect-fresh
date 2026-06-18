@@ -13,7 +13,7 @@ const hiddenReviews = computed(() => reviews.slice(4))
     <section class="hero about-hero">
       <div class="container container-wide about-hero-layout">
         <div class="about-hero-main">
-          <p class="eyebrow">BRAVO REMONT</p>
+          <p class="eyebrow">Браво Проект</p>
           <h1>{{ aboutPage.heroTitle }}</h1>
           <p class="hero-lead">{{ aboutPage.heroLead }}</p>
           <div class="hero-actions">
@@ -141,7 +141,7 @@ const hiddenReviews = computed(() => reviews.slice(4))
     <section id="about-lead" class="section">
       <div class="container lead-grid">
         <LeadForm
-          title="Обсудить ремонт с BRAVO REMONT"
+          title="Обсудить ремонт с Браво Проект"
           subtitle="Оставьте телефон — уточним задачу, состояние квартиры и предложим понятный следующий шаг."
           button-label="Получить консультацию"
           tone="dark"

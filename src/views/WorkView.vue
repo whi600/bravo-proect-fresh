@@ -34,7 +34,7 @@ const workStages = computed(
     <section class="hero hero-service">
       <div class="container container-wide hero-grid">
         <div>
-          <p class="eyebrow">Виды работ BRAVO REMONT</p>
+          <p class="eyebrow">Виды работ Браво Проект</p>
           <h1>{{ work.title }}</h1>
           <p class="hero-lead">{{ work.lead }}</p>
           <p class="type-price">{{ work.priceFrom }}</p>
@@ -139,7 +139,7 @@ const workStages = computed(
     <section class="section work-advantages-section">
       <div class="container container-wide">
         <div class="section-head">
-          <p class="eyebrow">Почему BRAVO REMONT</p>
+          <p class="eyebrow">Почему Браво Проект</p>
           <h2>Делаем отдельные работы как часть нормального ремонта</h2>
         </div>
         <div class="service-fit-grid">

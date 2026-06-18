@@ -18,7 +18,7 @@ import parmaKitchenImage from '../assets/cases/parma-kitchen.webp'
 import parmaLivingImage from '../assets/cases/parma-living.webp'
 
 export const company = {
-  name: 'BRAVO REMONT',
+  name: 'Браво Проект',
   city: 'Пермь',
   phone: '+7 (904) 848-77-14',
   phones: [{ label: '+7 (904) 848-77-14', href: 'tel:+79048487714' }],
@@ -234,7 +234,7 @@ export const reviews = [
 ]
 
 export const aboutPage = {
-  heroTitle: 'О компании BRAVO REMONT',
+  heroTitle: 'О компании Браво Проект',
   heroLead:
     'Помогаем владельцам квартир в Перми пройти ремонт без лишней потери времени, сил и бюджета: от сметы и материалов до контроля этапов на объекте.',
   heroImage: parmaKitchenImage,

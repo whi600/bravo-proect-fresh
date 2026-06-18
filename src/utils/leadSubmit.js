@@ -5,7 +5,7 @@ const leadEndpoint = `https://formsubmit.co/ajax/${leadRecipientEmail}`
 export async function submitLead(payload) {
   const formData = new FormData()
 
-  formData.append('_subject', payload.subject || 'Новая заявка с сайта BRAVO REMONT')
+  formData.append('_subject', payload.subject || 'Новая заявка с сайта Браво Проект')
   formData.append('_template', 'table')
   formData.append('_captcha', 'false')
   formData.append('Получатель', leadRecipientEmail)

@@ -95,7 +95,7 @@ const hiddenReviews = computed(() => reviews.slice(3))
     <section class="hero hero-service">
       <div class="container container-wide hero-grid">
         <div>
-          <p class="eyebrow">Услуги BRAVO REMONT</p>
+          <p class="eyebrow">Услуги Браво Проект</p>
           <h1>{{ page.heroTitle }}</h1>
           <p class="hero-lead">{{ page.heroLead }}</p>
           <p class="type-price">{{ service.priceFrom }}</p>

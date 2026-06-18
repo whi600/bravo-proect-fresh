@@ -3,6 +3,7 @@ import AboutView from '../views/AboutView.vue'
 import HomeView from '../views/HomeView.vue'
 import ServiceView from '../views/ServiceView.vue'
 import WorkView from '../views/WorkView.vue'
+import { applyRouteSeo } from '../utils/seo'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -42,6 +43,10 @@ const router = createRouter({
     }
     return { top: 0, behavior: 'smooth' }
   },
+})
+
+router.afterEach((to) => {
+  applyRouteSeo(to)
 })
 
 export default router

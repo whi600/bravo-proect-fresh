@@ -112,8 +112,8 @@ watch(
 <template>
   <header class="site-header">
     <div class="container header-inner">
-      <RouterLink class="logo" to="/" aria-label="BRAVO REMONT">
-        <img class="logo-image" :src="bravoLogo" alt="BRAVO REMONT" />
+      <RouterLink class="logo" to="/" aria-label="Браво Проект">
+        <img class="logo-image" :src="bravoLogo" alt="Браво Проект" />
         <span class="logo-caption">Отделка под ключ</span>
       </RouterLink>
 
