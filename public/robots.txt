@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bravo-proect-fresh.pages.dev/sitemap.xml
+Sitemap: https://br-remont.pages.dev/sitemap.xml

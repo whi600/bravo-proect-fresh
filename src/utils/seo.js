@@ -1,6 +1,6 @@
 import { company, servicePages, workPages } from '../data/siteData'
 
-const siteUrl = 'https://bravo-proect-fresh.pages.dev'
+const siteUrl = 'https://br-remont.pages.dev'
 const defaultImage = `${siteUrl}/og-image.png`
 
 const fallbackSeo = {

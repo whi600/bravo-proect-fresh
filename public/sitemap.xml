@@ -1,325 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/</loc>
+    <loc>https://br-remont.pages.dev/</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/o-kompanii</loc>
+    <loc>https://br-remont.pages.dev/o-kompanii</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/novostroyka</loc>
+    <loc>https://br-remont.pages.dev/uslugi/novostroyka</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/heroTitle</loc>
+    <loc>https://br-remont.pages.dev/uslugi/vtorichka</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/heroLead</loc>
+    <loc>https://br-remont.pages.dev/uslugi/kapitalnyj-remont</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/heroImage</loc>
+    <loc>https://br-remont.pages.dev/uslugi/kosmeticheskij-remont</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/aboutImages</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-vannoj</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/exampleGallery</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-kuhni</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/value</loc>
+    <loc>https://br-remont.pages.dev/uslugi/studija</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/whatIncluded</loc>
+    <loc>https://br-remont.pages.dev/uslugi/odnokomnatnaya-kvartira</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/vtorichka</loc>
+    <loc>https://br-remont.pages.dev/uslugi/dvuhkomnatnaya-kvartira</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/kapitalnyj-remont</loc>
+    <loc>https://br-remont.pages.dev/uslugi/trehkomnatnaya-kvartira</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/kosmeticheskij-remont</loc>
+    <loc>https://br-remont.pages.dev/uslugi/chetyrehkomnatnaya-kvartira</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-vannoj</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-gostinoj</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-kuhni</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-tualeta</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/studija</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-spalni</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/odnokomnatnaya-kvartira</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-detskoj</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/dvuhkomnatnaya-kvartira</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-prihozhej</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/trehkomnatnaya-kvartira</loc>
+    <loc>https://br-remont.pages.dev/uslugi/remont-ofisa</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/chetyrehkomnatnaya-kvartira</loc>
+    <loc>https://br-remont.pages.dev/uslugi/panelnyj-dom</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-gostinoj</loc>
+    <loc>https://br-remont.pages.dev/uslugi/kirpichnyj-dom</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-tualeta</loc>
+    <loc>https://br-remont.pages.dev/uslugi/hruschevka</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-spalni</loc>
+    <loc>https://br-remont.pages.dev/uslugi/dizajnerskij-remont</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-detskoj</loc>
+    <loc>https://br-remont.pages.dev/raboty/shtukaturka-sten</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-prihozhej</loc>
+    <loc>https://br-remont.pages.dev/raboty/shpatlevka-sten</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/remont-ofisa</loc>
+    <loc>https://br-remont.pages.dev/raboty/pokraska-sten</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/panelnyj-dom</loc>
+    <loc>https://br-remont.pages.dev/raboty/poklejka-oboev</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/kirpichnyj-dom</loc>
+    <loc>https://br-remont.pages.dev/raboty/plitka-na-stenu</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/hruschevka</loc>
+    <loc>https://br-remont.pages.dev/raboty/styazhka-pola</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/uslugi/dizajnerskij-remont</loc>
+    <loc>https://br-remont.pages.dev/raboty/ukladka-plitki</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/shtukaturka-sten</loc>
+    <loc>https://br-remont.pages.dev/raboty/ukladka-laminata</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/title</loc>
+    <loc>https://br-remont.pages.dev/raboty/gidroizolyaciya</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/priceFrom</loc>
+    <loc>https://br-remont.pages.dev/raboty/teplyj-pol</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/lead</loc>
+    <loc>https://br-remont.pages.dev/raboty/natyazhnoj-potolok</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/image</loc>
+    <loc>https://br-remont.pages.dev/raboty/pokraska-potolka</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/includes</loc>
+    <loc>https://br-remont.pages.dev/raboty/shpatlevka-potolka</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/result</loc>
+    <loc>https://br-remont.pages.dev/raboty/podvesnoj-potolok</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/shpatlevka-sten</loc>
+    <loc>https://br-remont.pages.dev/raboty/santehnika</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/pokraska-sten</loc>
+    <loc>https://br-remont.pages.dev/raboty/elektrika</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/poklejka-oboev</loc>
+    <loc>https://br-remont.pages.dev/raboty/demontazh</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/plitka-na-stenu</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/styazhka-pola</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/ukladka-plitki</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/ukladka-laminata</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/gidroizolyaciya</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/teplyj-pol</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/natyazhnoj-potolok</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/pokraska-potolka</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/shpatlevka-potolka</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/podvesnoj-potolok</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/santehnika</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/elektrika</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/demontazh</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bravo-proect-fresh.pages.dev/raboty/montazh-oborudovaniya</loc>
+    <loc>https://br-remont.pages.dev/raboty/montazh-oborudovaniya</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
