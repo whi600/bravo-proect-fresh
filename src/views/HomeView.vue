@@ -544,7 +544,14 @@ function moveCaseImage(direction) {
     <section id="reviews" class="section reviews-band">
       <div class="container container-wide">
         <div class="section-head reviews-band-head">
-          <h2>Клиенты отмечают не только результат, но и спокойный процесс</h2>
+          <div>
+            <span class="reviews-kicker">Отзывы клиентов</span>
+            <h2>Клиенты отмечают не только результат, но и спокойный процесс</h2>
+          </div>
+          <p>
+            Собрали реальные впечатления после сдачи объектов: про сроки, материалы, коммуникацию и
+            итоговое качество ремонта.
+          </p>
         </div>
         <div class="reviews-band-grid">
           <article v-for="review in visibleReviews" :key="review.author" class="review-card">
