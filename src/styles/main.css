@@ -2709,6 +2709,19 @@ textarea {
     padding: 36px 0 42px;
   }
 
+  .home-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-page > #quiz {
+    order: 8;
+  }
+
+  .home-page > #lead-end {
+    order: 9;
+  }
+
   .header-inner {
     gap: 10px;
     min-height: 64px;
@@ -2936,6 +2949,14 @@ textarea {
   .reviews-band-grid,
   .reviews-disclosure-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reviews-band-head {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-band-head h2 {
+    max-width: none;
   }
 
   .repair-price-grid {

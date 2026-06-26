@@ -207,7 +207,7 @@ function moveCaseImage(direction) {
 </script>
 
 <template>
-  <div>
+  <div class="home-page">
     <section class="hero">
       <div class="container container-wide hero-grid">
         <div>
@@ -544,7 +544,6 @@ function moveCaseImage(direction) {
     <section id="reviews" class="section reviews-band">
       <div class="container container-wide">
         <div class="section-head reviews-band-head">
-          <p class="eyebrow">Отзывы</p>
           <h2>Клиенты отмечают не только результат, но и спокойный процесс</h2>
         </div>
         <div class="reviews-band-grid">
