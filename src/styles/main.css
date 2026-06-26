@@ -3237,11 +3237,9 @@ textarea {
 
   .mobile-sticky-cta {
     display: block;
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 30;
+    position: static;
+    width: auto;
+    margin: 0 12px calc(12px + env(safe-area-inset-bottom, 0px));
     text-align: center;
     text-decoration: none;
     background: var(--terracotta);
@@ -3253,7 +3251,7 @@ textarea {
   }
 
   body {
-    padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 0;
   }
 }
 
@@ -3294,14 +3292,14 @@ textarea {
   .about-reviews-grid,
   .reviews-band-grid,
   .reviews-disclosure-grid,
+  .scenario-check-grid,
   .faq-list-full {
     grid-template-columns: 1fr;
   }
 
   .mobile-sticky-cta {
-    left: 10px;
-    right: 10px;
-    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 
